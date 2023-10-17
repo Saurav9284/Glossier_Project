@@ -1,0 +1,12 @@
+[
+    {
+        "id": "12345",
+        "name": "Example Product",
+        "img": "https://www.biotique.com/cdn/shop/products/8904317304672_5.jpg?v=1665663336&width=533",
+        "details": "This is a sample product description..",
+        "usage": "For best results, use as directed by the manufacturer.",
+        "star_rating": 4.5,
+        "price": 29.99,
+        "catogery":"face"
+      }
+]
