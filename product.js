@@ -1,5 +1,40 @@
 let mainSection = document.getElementById("MainDataDiv");
 
+
+let btnAll=document.getElementById("btnAll");
+btnAll.addEventListener("click", ()=>{
+console.log("1")
+})
+
+
+let btnFace=document.getElementById("btnFace");
+btnFace.addEventListener("click", ()=>{
+
+console.log("2")
+})
+
+
+let btnEyes=document.getElementById("btnEyes");
+btnEyes.addEventListener("click", ()=>{
+
+console.log("3")
+})
+
+
+let btnLips=document.getElementById("btnLips");
+btnLips.addEventListener("click", ()=>{
+
+console.log("4")
+})
+
+
+let btnTools=document.getElementById("btnTools");
+btnTools.addEventListener("click", ()=>{
+
+console.log("5")
+})
+
+
 let URLdata = "product.json"
 
 DataLoad(URLdata)
@@ -53,27 +88,40 @@ function DisplayData(item){
 
         let rating = document.createElement("p");
         rating.setAttribute("class" ,"rating")
-        rating.innerHTML = ele.star_rating;
+        rating.innerHTML = "Rating:  "+ele.star_rating;
+
+
 
         let catogery = document.createElement("p");
         catogery.setAttribute("class" , "catogery");
         catogery.setAttribute("data-id" , ele.catogery);
     
+        let type = document.createElement("p");
+        type.setAttribute("class" , "type");
+        type.setAttribute("data-id" , ele.type);
+
+
+
         let price = document.createElement("p");
         price.setAttribute("class" ,"price")
-        price.innerHTML = ele.price;
+        price.innerHTML = ele.price+"$";
 
         let cartbtn = document.createElement("button");
         cartbtn.classList.add("cartbtn");
         cartbtn.innerHTML = "Add to bag";
-
+        cartbtn.addEventListener("click",()=>{
+            cartbtn.innerHTML="Added";
+            cartbtn.style.color="green";
+        });
 
         cardBody.append(details)
         cardBody.append(usage)
-        cardBody.append(rating)
+        // cardBody.append(rating)
         cardBody.append(price)
         cardBody.append(cartbtn)
+
         // cardBody.append(catogery)
+        // cardBody.append(type)
 
         card.append(cardImage)
         card.append(cardBody)

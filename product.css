@@ -26,6 +26,11 @@ body{
     background-color: #e1e5ee;
     border-radius: 8px;
 }
+#funDiv>button:hover{
+
+    background-color: black;
+    color: white;
+}
 #funDiv>:first-child{
     height: 40px;
     margin-left: 5%;
@@ -56,19 +61,42 @@ body{
     display: grid;
  
     grid-template-columns: repeat(4, 1fr);
-    gap: 2%;
+    gap: 1%;
     margin: 2% 2% 1% 1%;
 }
 .card img{
     width: 100%;
-    border-radius: 10px;
+    border-radius: 5px 5px 0px 0px;
+    height: 80%;
    
 }
 .card{
-    border: 2px solid green;
+    border: 1px solid black;
     text-align: center;
     width: 100%;
-    border-radius: 10px;
+    border-radius: 5px;
+    background-color:rgb(240, 230, 230) ;
+}
+.card button{
+    color: rgb(0, 0, 0);
+    background-color: rgb(243, 238, 238);
+    width: 90%;
+    height: 30px;
+    margin-bottom: 2%;
+    margin-top: 2%;
+    border: 1px solid black;
+}
+
+.card p{
+    margin: 0px;
+    margin-top: 5px;
+}
+.card button:hover{
+    /* margin: 0px; */
+    background-color: grey;
+    border:2px dashed rgb(23, 187, 11);
+    cursor: pointer;
+
 }
 
 @media screen and (max-width: 600px){
@@ -80,6 +108,7 @@ body{
     #funDiv>button{
         width: 15%;
     }
+    
     #itemDiv{
         justify-content: space-between;
         width: 30%;
