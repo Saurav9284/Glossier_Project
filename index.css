@@ -1,0 +1,111 @@
+*{
+    margin:  0px;
+    padding: 0px;
+    box-sizing: border-box;
+    font-family: "Spartan", sans-serif;
+}
+:root  {
+    --white-text: #ffffff;
+    --black-text: #000000;
+    --hover-text: #242424;
+}
+header{
+    background-image: url(Images/headerImage.jpg);
+    background-position: top;
+    background-repeat: no-repeat;
+    background-size: cover;
+    height: 800px;
+}
+#header_navbar{
+    border-bottom: 1px solid white;
+}
+.main_container{
+    width: 80%;
+    margin: auto;
+}
+#navbar{
+    display: flex;
+    width: 100%;
+    padding: 15px 0px;
+    align-items: center;
+}
+#navbarChild_First{
+    width: 30%;
+    text-align: left;
+}
+#navbar_Logo{
+    font-size: 30px;
+    color: var(--white-text);
+    font-weight: 600;
+    font-style: italic;
+    display: inline;
+}
+.hoveredOnLogo{
+    color: var(--hover-text) !important;
+    font-size: 30px !important;
+    font-weight: 400;
+}
+#navbarChild_second{
+    width: 40%;
+    text-align: center;
+}
+#navbar_menu{
+    list-style-type: none;
+}
+#navbar_menu li{
+    display: inline;
+}
+#navbar_menu a{
+    text-transform: none;
+    text-decoration: none;
+    color: var(--white-text);
+    padding: 15px 12px;
+    font-size: 16px;
+}
+#navbar_menu a:hover{
+    color: var(--hover-text);
+}
+#navbarChild_third{
+    width: 30%;
+    text-align: right;
+}
+#navbar_icons{
+    list-style-type: none;
+}
+#navbar_icons li{
+    display: inline;
+}
+#navbar_icons a{
+    text-decoration: none;
+    color: var(--white-text);
+}
+#navbar_icons span{
+    font-size: 22px !important;
+    padding: 0px 6px ;
+    font-weight: 300;
+}
+#navbar_icons span:hover{
+    color: var(--hover-text);
+}
+@media only screen and (max-width:1100px) {
+    .main_container{
+        width: 90%;
+    }
+}
+@media only screen and (max-width:900px) {
+    .main_container{
+        width: 95%;
+    }
+}
+
+@media only screen and (max-width:767px) {
+    #navbarChild_second{
+        display: none;
+    }
+    #navbarChild_third{
+        display: none;
+    }
+    #navbar_Logo{
+        font-size: 40px;
+    }
+}
