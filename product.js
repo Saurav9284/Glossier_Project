@@ -1,46 +1,56 @@
+let URLdata = "product.json";
+
+
 let mainSection = document.getElementById("MainDataDiv");
 let popUPaddedBag = document.getElementById("popUP-addedBag");
 
+
+// Sorting
+let LOWTOHIGH = document.getElementById("LOWTOHIGH").addEventListener("click",()=>{DataLoad(`${URLdata}?_sort=price&_order=asc`)})
+let HIGHTOLOW = document.getElementById("HIGHTOLOW").addEventListener("click",()=>{DataLoad(`${URLdata}?_sort=price&_order=desc`)})
+
+// Filter
+let DRYSkin = document.getElementById("DRYSkin").addEventListener("click" , ()=>{DataLoad(`${URLdata}?`)});
+let OILYSkin = document.getElementById("OILYSkin").addEventListener("click" , ()=>{DataLoad(`${URLdata}?`)});
+let NormalSKIN = document.getElementById("NormalSKIN").addEventListener("click" , ()=>{DataLoad(`${URLdata}?`)});
+
 let btnAll=document.getElementById("btnAll");
 btnAll.addEventListener("click", ()=>{
+    DataLoad(`${URLdata}?`)
 console.log("1")
 })
 
-
 let btnFace=document.getElementById("btnFace");
 btnFace.addEventListener("click", ()=>{
-
+    DataLoad(`${URLdata}?`)
 console.log("2")
 })
 
-
 let btnEyes=document.getElementById("btnEyes");
 btnEyes.addEventListener("click", ()=>{
-
+    DataLoad(`${URLdata}?`)
 console.log("3")
 })
 
-
 let btnLips=document.getElementById("btnLips");
 btnLips.addEventListener("click", ()=>{
-
+    DataLoad(`${URLdata}?`)
 console.log("4")
 })
 
-
 let btnTools=document.getElementById("btnTools");
 btnTools.addEventListener("click", ()=>{
-
+    DataLoad(`${URLdata}?`)
 console.log("5")
 })
 
 
-let URLdata = "product.json"
+DataLoad(URLdata);
 
-DataLoad(URLdata)
-async function DataLoad(URLdata){
+// DataLoad(url)
+async function DataLoad(url,page){
     try {
-        let res = await fetch(URLdata);
+        let res = await fetch(`${url}?_page=${page ||1}&_limit=5`);
 
         let data = await res.json();
         console.log(data)

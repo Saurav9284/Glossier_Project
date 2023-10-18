@@ -92,10 +92,14 @@ body{
     gap: 1%;
     margin: 2% 2% 1% 1%;
 }
+.card-details{
+    margin: 0px;
+    /* color: red; */
+}
 .card img{
     width: 100%;
     border-radius: 5px 5px 0px 0px;
-    height: 80%;
+    /* height: ; */
    
 }
 .card{
@@ -104,6 +108,10 @@ body{
     width: 100%;
     border-radius: 5px;
     background-color:rgb(240, 230, 230) ;
+    height: auto;
+}
+.card-body{
+    height: au;
 }
 .card button{
     color: rgb(0, 0, 0);
