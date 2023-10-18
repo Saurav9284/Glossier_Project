@@ -1,5 +1,5 @@
 let mainSection = document.getElementById("MainDataDiv");
-
+let popUPaddedBag = document.getElementById("popUP-addedBag");
 
 let btnAll=document.getElementById("btnAll");
 btnAll.addEventListener("click", ()=>{
@@ -112,6 +112,12 @@ function DisplayData(item){
         cartbtn.addEventListener("click",()=>{
             cartbtn.innerHTML="Added";
             cartbtn.style.color="green";
+
+            popUPaddedBag.style.display="block";
+
+            setTimeout(() => {
+                popUPaddedBag.style.display="none";
+            }, 500);
         });
 
         cardBody.append(details)
