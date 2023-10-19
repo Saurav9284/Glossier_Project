@@ -29,7 +29,14 @@
 	display: none;
 }
 .img-fluid {
-	margin-top: 30%;
+	width: 40%;
+	margin-top: 30px;
+	margin-left: 30px;
+}
+.img-fluid1 {
+	width: 90%;
+	margin-top: 100px;
+	margin-left: 20px;
 }
 
 @media only screen and (min-width: 1500px) {
