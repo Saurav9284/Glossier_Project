@@ -1,0 +1,47 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,200;0,300;0,400;0,500;0,600;1,500;1,600&display=swap');
+
+#signupbtn,
+#googlebtn {
+    background-color: white;
+    box-shadow: none;
+    padding: 10px;
+    border: 1px solid black;
+    color: black;
+    font-size: 0.9rem;
+    font-family: 'Poppins', sans-serif;
+}
+
+#signupbtn:hover {
+    background-color: black;
+    color: white;
+}
+
+#googlebtn:hover {
+    background-color: black;
+    color: white;
+}
+
+#spinner {
+    position: fixed;
+    top: 300px;
+    left: 50%;
+    z-index: 2000;
+    display: none;
+}
+.img-fluid {
+	width: 40%;
+	margin-top: 30px;
+	margin-left: 30px;
+}
+.img-fluid1 {
+	width: 90%;
+	margin-top: 50px;
+	margin-left: 20px;
+}
+
+@media only screen and (min-width: 1500px) {
+    #signupbox {
+        margin-top: 40px;
+    }
+
+}
