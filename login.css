@@ -14,14 +14,11 @@
 #signinbtn:hover {
    background-color: black;
    color: white;
-   
 }
 
 #googlebtn:hover {
 	background-color: black;
 	color: white;
-	/* font-family: 'Poppins', sans-serif; */
-	
 }
 
 #spinner {
