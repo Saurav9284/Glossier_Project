@@ -3,22 +3,19 @@
 
 
 
-// let URLdata = "https://cwproject-unit5.onrender.com/products";
-let URLdata = "./data.JSON";
+let URLdata = "https://cwproject-unit5.onrender.com/products";
+// let URLdata = "./data.JSON";
 
 
 let mainSection = document.getElementById("MainDataDiv");
 let popUPaddedBag = document.getElementById("popUP-addedBag");
-let See_More = document.getElementById("See_More");
-See_More.addEventListener("click",()=>{
-    DataLoad(URLdata,2,16);
-})
-
+let Pagination = document.getElementById("pagination_Wrapper");
 
 // localStorage For Id:-
 
-let productID = JSON.parse(localStorage.getItem("ProductId"));
-
+let productID = JSON.parse(localStorage.getItem("ProductId"))||[];
+// console.log(productID);
+let ProDetails = JSON.parse(localStorage.getItem("ProDetails"))||[];
 
 // Sorting
 var selectElement = document.getElementById('sortBy');
@@ -68,36 +65,36 @@ selectCatogery.addEventListener('change',()=>{
 // buttons 
 let btnAll=document.getElementById("btnAll");
 btnAll.addEventListener("click", ()=>{
-    DataLoad(URLdata,1,8)
+    DataLoad(URLdata,1,12)
 console.log("1")
 })
 
 let btnFace=document.getElementById("btnFace");
 btnFace.addEventListener("click", ()=>{
-    DataLoad(URLdata,2,8)
+    DataLoad(`${URLdata}?title=json-server&catogery=face`,null,8)
 console.log("2")
 })
 
 let btnEyes=document.getElementById("btnEyes");
 btnEyes.addEventListener("click", ()=>{
-    DataLoad(URLdata,3,8)
+    DataLoad(`${URLdata}?title=json-server&catogery=Eyes`,null,8)
 console.log("3")
 })
 
 let btnLips=document.getElementById("btnLips");
 btnLips.addEventListener("click", ()=>{
-    DataLoad(URLdata,4,8)
+    DataLoad(`${URLdata}?title=json-server&catogery=lips`,null,8)
 console.log("4")
 })
 
 let btnTools=document.getElementById("btnTools");
 btnTools.addEventListener("click", ()=>{
-    DataLoad(URLdata,5,8)
+    DataLoad(`${URLdata}?title=json-server&catogery=Tools`,null,8)
 console.log("5")
 })
 
 
-DataLoad(URLdata,1,16);
+DataLoad(URLdata,1,12);
 
 // DataLoad(url)
 async function DataLoad(url,page,limit){
@@ -106,12 +103,25 @@ async function DataLoad(url,page,limit){
         if(url===URLdata){
         let res = await fetch(`${url}?_page=${page ||1}&_limit=${limit || 16}`);
 
+        let TotalD = res.headers.get("X-Total-Count")
+        let DataPer = limit || 12;
+        let TotalPage = Math.ceil(TotalD/DataPer);
+        console.log(TotalD);
+
+        Pagination.innerHTML="";
+        for(let i=1;i<=TotalPage;i++){
+            let button = document.createElement("button");
+            button.innerText=i;
+            button.classList.add("PageButton");
+            Pagination.append(button)
+        };
+
         let data = await res.json();
         console.log(data)
 
         DisplayData(data);
     }else{
-        let res = await fetch(`${url}&_page=${page ||1}&_limit=${limit || 16}`);
+        let res = await fetch(`${url}&_page=${page ||1}&_limit=${limit || 12}`);
 
         let data = await res.json();
         console.log(data)
@@ -131,22 +141,57 @@ function DisplayData(item){
     item.forEach((ele) => {
         let card = document.createElement("div");
         card.setAttribute("class","card");
+        
 
         let cardImage = document.createElement("div");
         cardImage.setAttribute("class" , "card-img");
+
+        cardImage.addEventListener("click",()=>{
+            let objProD={
+                id:ele.id,
+                price:ele.price,
+                img:ele.img,
+                img2:ele.img2,
+                type:ele.type,
+                catogery:ele.catogery,
+                details:ele.details
+            }
+            ProDetails.push(objProD);
+            let ProDetDATA = JSON.stringify(ProDetails) 
+            localStorage.setItem("ProDetails",ProDetDATA);
+
+
+        });
+
+
 
         let img = document.createElement("img");
         img.setAttribute("class" , "img");
         img.src = ele.img;
         img.alt = "image";
 
+        
         let img2 = document.createElement("img");
         img2.setAttribute("class" , "img2");
         img2.src= ele.img2;
         img2.alt ="Image";
+        
+        let imgWish = document.createElement("img");
+        imgWish.setAttribute("id" , "imgWish");
+        imgWish.src = "https://static.thenounproject.com/png/4590951-200.png";
+        imgWish.alt = "image";
 
+        let imgWish2 = document.createElement("img");
+        imgWish2.setAttribute("id" , "imgWish2");
+        imgWish2.src = "https://upload.wikimedia.org/wikipedia/commons/thumb/f/f1/Heart_coraz%C3%B3n.svg/800px-Heart_coraz%C3%B3n.svg.png";
+        imgWish2.alt = "image";
+
+        // img.append(imgWish)
         cardImage.append(img);
         cardImage.append(img2);
+        // cardImage.append(imgWish);
+        // cardImage.append(imgWish2);
+
 
         let cardBody = document.createElement("div");
         cardBody.setAttribute("class" , "card-body");
@@ -197,10 +242,18 @@ function DisplayData(item){
             popUPaddedBag.style.display="block";
 
             let obj={
-                price:ele.price
+                id:ele.id,
+                price:ele.price,
+                img:ele.img,
+                img2:ele.img2,
+                type:ele.type,
+                catogery:ele.catogery,
+                details:ele.details
             }
-            localStorage.setItem("ProductId",)
-           
+            productID.push(obj);
+            var localData = JSON.stringify(productID)
+            localStorage.setItem("ProductId",localData);
+           console.log(obj);
         });
 
         cardBody.append(details)
@@ -209,8 +262,8 @@ function DisplayData(item){
         cardBody.append(price)
         cardBody.append(cartbtn)
 
-        // cardBody.append(catogery)
-        // cardBody.append(type)
+        cardBody.append(catogery)
+        cardBody.append(type)
 
         card.append(cardImage)
         card.append(cardBody)
@@ -224,25 +277,10 @@ function DisplayData(item){
 
 let page = 1;
 
-// window.addEventListener("scroll", ()=>{
-//     let scrollTop = document.documentElement.scrollTop;
-//   let scrollHeight = document.documentElement.scrollHeight;
-//   let clientHeight = document.documentElement.clientHeight;
+function PaginationData(){
 
-//   console.log(scrollTop, scrollHeight, clientHeight);
-//   let size=Math.ceil(clientHeight + scrollTop)
-//   if ( size>= scrollHeight) {
-//     // window.location.reload();
-//     console.log("hitbtom");
-//     page++;
-//     DataLoad(URLdata,page,8);
-//   }
-// });
+}
 
-
-// loginData(URLdata)
-
-// async function loginData(url) {
 let obj={
     
         id: "123",
@@ -256,18 +294,3 @@ let obj={
         catogery: "lips",
         type: "Dry"
 }
-//     try {
-//       let res = await DataLoad(url, {
-//         method: "POST",
-//         headers: {
-//           "content-type": "application/json",
-//         },
-//         body: JSON.stringify(obj),
-//       });
-//       let data = await res.json();
-//       console.log(data);
-//     }
-//     catch(error){
-//         console.log(error)
-//     }
-// }
