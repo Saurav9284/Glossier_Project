@@ -1,0 +1,436 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="icon" href="https://i.ibb.co/1d9BGZK/download-1-removebg-preview.jpg">
+    <!-- For font awesome premium icons -->
+    <link rel="stylesheet" data-purpose="Layout StyleSheet" title="Web Awesome"
+        href="/css/app-wa-02670e9412103b5852dcbe140d278c49.css?vsn=d">
+    <link rel="stylesheet" href="https://site-assets.fontawesome.com/releases/v6.4.2/css/all.css">
+    <link rel="stylesheet" href="https://site-assets.fontawesome.com/releases/v6.4.2/css/sharp-solid.css">
+    <link rel="stylesheet" href="https://site-assets.fontawesome.com/releases/v6.4.2/css/sharp-regular.css">
+    <link rel="stylesheet" href="https://site-assets.fontawesome.com/releases/v6.4.2/css/sharp-light.css">
+
+    <!-- For font awesome premium icons ends here -->
+
+    <link rel="stylesheet" href="./footer.css">
+    <link rel="stylesheet" href="./nav.css">
+    <link rel="stylesheet" href="./singlePro.css" />
+    <title>Product Details</title>
+    <style>
+    * input{
+    text-align: center;
+    font-size: 20px;
+    color: #8d2e4f;
+    }
+    .Main-Img{
+        border-radius: 5px;
+        /* border: 2px solid black; */
+        box-shadow: 0 1px 1px rgba(0,0,0,0.11), 0 2px 2px rgba(0,0,0,0.11), 0 4px 4px rgba(0,0,0,0.11), 0 8px 8px rgba(0,0,0,0.11), 0 16px 16px rgba(0,0,0,0.11), 0 32px 32px rgba(0,0,0,0.11);    }
+    .Main-des{
+      border: 5px black;
+    }
+    .payment{
+    margin-top: 20px;
+    display: flex;
+    background-color: #4ed4d6;
+    width : 80%;
+    height: 50px;
+    padding: 0px 5px;
+    border-radius: 5px;
+    justify-content: space-between;
+    align-items: center;
+  }
+  .payment .pApps img{
+    width: 30px;
+    height: 30%;
+    padding: 5px;
+  }
+  form  input[type="text"]{
+    width: 85%;
+    border-bottom-left-radius: 5px;
+    border-top-left-radius: 5px;
+    height: 100%;
+  }
+  
+  form  input[type="image"]{
+    width: 15%;
+    height: 110%;
+    background-color:  #8d2e4f;
+    border-bottom-right-radius: 5px;
+    border-top-right-radius: 5px;
+    filter: invert();
+  }
+  form{
+  margin-top: 20px;
+  margin-bottom: 20px;
+  width: 82%;
+  height: 50px;
+  display: flex;
+  justify-content: center;
+  }
+  #add{
+    width: 65%;
+    /* border : 2px solid black; */
+    display: flex;
+    justify-content: space-between;
+  }
+</style>
+
+
+</head>
+
+<body>
+
+<!-- 
+    <div id="cartContainer">
+        <div id="cart-header">
+            <h3>Your bag <span id="totalItem">(5 items)</span></h3>
+            <p class="crossIcon" id="closeCart">&times; &nbsp; &nbsp; </p>
+
+        </div>
+        <section style="width: 100%;" id="product-section">
+
+
+            <div
+                style=" width: 88%; margin: auto; padding: 7px 0px 15px 0; margin-bottom: 15px; border-bottom: 6px solid rgba(95, 88, 88, 0.46);">
+                <p style="text-align: center;" id="shippingCharges">Congrats! You get free standard shipping.</p>
+
+            </div>
+
+            <div style="width: 100%;" id="product-list-wrapper">
+
+            </div>
+            <p style="margin:15px 0 15px 22px; font-size: 20px;">Also</p>
+            <div id="extra-products">
+
+                <div class="extra-card">
+                    <img src="https://glossier-prod.imgix.net/products/glossier-after-baume-carousel-01_23fe78f1-1917-42e6-9448-b7f44e65acfc.png?auto=compress,format&cs=srgb&w=540"
+                        alt="">
+                    <p>Lip Balm for Women</p>
+                    <button>$15</button>
+                </div>
+                <div class="extra-card">
+                    <img src="https://glossier-prod.imgix.net/products/glossier-you-rollerball-carousel-01.png?auto=compress,format&cs=srgb&w=540"
+                        alt="">
+                    <p>Glossier Rollerball</p>
+                    <button>$23</button>
+                </div>
+                <div class="extra-card">
+                    <img src="https://glossier-prod.imgix.net/products/glossier-beautybag-carousel-01.png?auto=compress,format&cs=srgb&w=540"
+                        alt="">
+                    <p>The Beauty Bag </p>
+                    <button>$41</button>
+                </div>
+                <div class="extra-card">
+                    <img src="https://glossier-prod.imgix.net/files/glossier-boybrow-ingredients_6c9018b6-54b6-42c0-8863-c874f35bb88d.png?auto=compress,format&cs=srgb&w=360"
+                        alt="">
+                    <p>Hair Brush</p>
+                    <button>$10</button>
+                </div>
+                <div class="extra-card">
+                    <img src="https://glossier-prod.imgix.net/files/glossier-dropdown-nav-goods-884x1105.png?auto=compress,format&cs=srgb&w=360"
+                        alt="">
+                    <p>Water Bottle</p>
+                    <button>$20</button>
+                </div>
+                <div class="extra-card">
+                    <img src="https://glossier-prod.imgix.net/files/glossier-milkjelly-cleansingbar-ugc-01.png?auto=compress,format&cs=srgb&w=540"
+                        alt="">
+                    <p>Baby Soap</p>
+                    <button>$25</button>
+                </div>
+                <div class="extra-card">
+                    <img src="https://glossier-prod.imgix.net/products/glossier-cleanser-concentrate-carousel-01.png?auto=compress,format&cs=srgb&w=540"
+                        alt="">
+                    <p>Face Serum for Woman</p>
+                    <button>$35</button>
+                </div>
+
+
+            </div>
+
+        </section>
+         -->
+        <!-- <div id="checkout">
+            <div class="pointer">
+                <p>$<span id="totalPrice">93</span> &#8722; Checkout </p>
+            </div>
+        </div>
+    </div>
+    <div class="backdrop"></div>
+
+
+    <section id="navbar" class="section-p1">
+        <div class="logo-box">
+            <a href="index.html">
+                <h3>Glossier.</h3>
+            </a>
+        </div>
+
+        <div class="container-2">
+
+            <li><a href="#">
+                    Skincare
+                </a></li>
+            <li><a href="#">
+                    Makeup
+                </a></li>
+            <li><a href="#">
+                    Sets
+                </a></li>
+            <li><a href="#">
+                    All
+                </a></li> 
+
+
+        </div>
+        <div class="container-3">
+
+
+            <li><a href="#"><input type="search" class="search" placeholder="Searh here..."><i id="searchIcon"
+                        class="fa-regular fa-magnifying-glass"></i></a></li>
+            <li><a href="login.html" id="userName"><i class="fa-light fa-user loginIcon"></i></a></li>
+            <li><a href="#"><i class="fa-light fa-heart"></i></a></li>
+            <li id="cartOpen" >
+                <a href="#"><i id="cartIcon" class="fa-light fa-bag-shopping cartIcon"> <span
+                            id="cartTotal">0</span></i></a>
+
+            </li>
+
+
+
+        </div> -->
+
+        <div class="mobile-nav">
+            <span class="crossIcon" id="closeNav">&times; &nbsp; &nbsp;</span>
+            <span>Skincare</span>
+            <span>Face Care</span>
+            <span>Makeup</span>
+            <span>search</span>
+            <span>Cart</span>
+            <span>Login</span>
+            <span>SignUp</span>
+
+        </div>
+        <div class="mobileIcon"><i id="bar" class="fas fa-outdent"></i></div>
+
+    </section>
+    <div id="alert-container">
+        <div id="alert">
+            <p id="alert-msg">Product Added to Cart</p>
+            <!-- <button>OK</button> -->
+        </div>
+    </div>
+
+
+
+    <div id="Main">
+        <section id="Main-section">
+            <div>
+                <div class="Main-Img">
+                    <img id="dImg" src="../Images/Milkey-jelly-cleanser/glossier-mjc-futuredew-carousel-01.avif"  />
+                </div>
+                
+                <div class="Main-des FSC">
+
+                    <h1 id="dName">Milky Jelly Cleanser</h1>
+                    <h4 id="dPrice">$18</h4>
+                    <p>A nourishing and pH-balanced gel-cream cleanser that plays nicely
+                        with all skin types.</p>
+
+
+                        
+        <div class="payment">
+            <span  id="15dis"><h3>15% off on All Payment App</h3></span>
+            <span class="pApps">
+            <img src="https://cdn.shopify.com/s/files/1/0057/8938/4802/files/paytm_icon_fa75a315-11a2-4c8e-a241-18af809eb683.svg?v=1682575951" alt="" style="margin-bottom:5px;">
+            <img src="https://cdn.shopify.com/s/files/1/0057/8938/4802/files/gpay_icon_503ebbda-a3e1-4659-af32-0686aecec227.svg?v=1682575951" alt="">
+            <img src="https://cdn.shopify.com/s/files/1/0057/8938/4802/files/phone_pe_icon_f9872d32-f8cf-43ca-8fa2-78db125fcdad.svg?v=1682575951" alt="">
+        </span>
+       </div>
+
+      
+       <!-- <h1> Check Delivery </h1>
+       <div class="delivery"> -->
+         <form>
+           <input type="text" placeholder="Enter your pin for Estimated delivery date" id="code">
+           <input type="image" src="https://cdn.vectorstock.com/i/1000x1000/30/86/check-delivery-logo-icon-design-vector-22483086.webp" alt="Submit" width="48" height="48" onclick="showdiliverTime()">
+         </form>
+         <p  id="diliverTime"></p>
+         
+                    <div id="add">
+                        <button><span id="decreaseBtn">&#8722; </span> <span id="totalNoOfProducts"> 1 </span> <span id="increaseBtn">  +</span></button>
+                        <button id="cartButton" onclick="updateTotalProducts()">  Add &nbsp; to &nbsp;Cart </button>
+                        <i class="fa-regular fa-heart"></i>
+                    </div>
+
+                </div>
+        </section>
+        <hr />
+        <section id="special-section">
+            <div class="heading">
+                <p>WHY IT'S SPECIAL</p>
+            </div>
+
+            <div id="special-des">
+                <div class="text">
+                    <p>
+                        It's formulated with five skin conditioners (like Allantoin and
+                        Pro-Vitamin B5) that leave your skin feeling baby soft (not like
+                        you need to rush for moisturizer afterwards).
+                    </p>
+                    <p>
+                        Instead of traditional soap, we used Poloxamer. It's the same mild
+                        cleansing agent that's found in contact lens solution, so it's
+                        safe for eyes and doesn't sting when removing your mascara!
+                    </p>
+                    <p>
+                        The "milky" phase conditions skin to keep it fresh, happy, and
+                        moisturized. The "jelly" phase works to dissolve oil, dirt, and
+                        makeup. It's gentle enough to use daily, twice a day, or more!
+                    </p>
+                </div>
+                <div class="Special-Img">
+                    <img src="../Images/Milky-Jelly/hover.avif" alt="" />
+                    <img src="../Images/Milkey-jelly-cleanser/glossier-mjc-futuredew-carousel-01.avif" alt="" />
+                </div>
+            </div>
+        </section>
+
+        <hr />
+
+        <!-- ----------------------------------Ingridiant------------------------------->
+
+        <section id="Ingridient">
+            <div class="heading">
+                <p>INGREDIENTS</p>
+            </div>
+
+            <div id="Ingridient-des">
+                <div class="text">
+                    <div>
+                        <p>Rose Water</p>
+                        <p>
+                            We replaced 1/4 of the H2O content with soothing rose water
+                            (bonus: smells great!).
+                        </p>
+                    </div>
+                    <hr />
+                    <div>
+                        <p>Comfrey Root Extract</p>
+                        <p>
+                            Contains allantoin, which is like dry skin’s comforting best
+                            friend.
+                        </p>
+                    </div>
+                    <hr />
+                    <div>
+                        <p>Xylitol</p>
+                        <p>
+                            Humectant that helps boost skin’s water reserves and reinforce
+                            its moisture barrier.
+                        </p>
+                    </div>
+                    <hr />
+                    <div>
+                        <p>Pro-Vitamin B5</p>
+                        <p>
+                            Like the nutrient found in mushrooms, avocados, and lentils,
+                            it’s a powerful natural and nourishing moisturizer.
+                        </p>
+                    </div>
+                    <hr />
+                </div>
+            </div>
+        </section>
+        <hr />
+        <!-------------------How to use-------------------------->
+        <section id="special-section">
+            <div class="heading">
+                <p>WHY IT'S SPECIAL</p>
+            </div>
+
+            <div id="special-des">
+                <div class="text">
+                    <p>
+                        The “milky” phase keeps skin fresh, happy, and conditioned. The
+                        “jelly” phase dissolves oil, dirt, and makeup.
+                    </p>
+                    <p>
+                        In the AM: Massage 1-2 pumps onto wet skin and rinse for a soft,
+                        conditioned look and feel.n the PM: Apply 2-3 pumps to dry skin
+                        and gently massage away makeup (it’s eye area safe!). Rinse with
+                        warm water to completely dissolve away the day.
+                    </p>
+                </div>
+                <div class="Special-Img">
+                    <video autoplay muted loop id="myVideo">
+                        <source src="../Images/Product-detail.mp4" type="video/mp4" />
+                        Your browser does not support the video tag.
+                    </video>
+                </div>
+            </div>
+        </section>
+        <hr />
+        <!-- ------------------------Awards--------------------- -->
+        <section id="special-section">
+            <div class="heading">
+                <p>Award</p>
+            </div>
+
+            <div id="Award">
+                <div class="Special-Img glamour">
+                    <img src="../Images/allure2.jpeg" alt="" />
+                    <img src="../Images/glamour.png" alt="" />
+                </div>
+            </div>
+        </section>
+
+        <hr />
+        <section id="special-section">
+            <div class="heading">
+                <p>More</p>
+            </div>
+            <div id="main-conta">
+                <div id="container"></div>
+            </div>
+        </section>
+
+        
+    </div>
+
+    <div id="footer">
+
+
+    </div>
+
+    <script src="./singlePro.js" type="module"></script>
+    <script src="./singlePro.js"></script>
+    <script src="./nav.js"></script>
+</body>
+
+
+<script>
+    let decreaseBtn = document.querySelector("#decreaseBtn")
+    let increaseBtn = document.querySelector("#increaseBtn")
+    let totalPro = document.getElementById("totalNoOfProducts")
+    decreaseBtn.addEventListener("click", ()=>{
+       totalPro.textContent = Number(totalPro.textContent) -1;
+    })
+
+    increaseBtn.addEventListener("click", ()=>{
+       totalPro.textContent = Number(totalPro.textContent) + 1;
+    })
+</script>
+
+<script type="module">
+    import { footer } from './footer.js'; // Update the path to the footer.js file
+    const footerElement = document.getElementById('footer');
+    footerElement.innerHTML = footer();
+</script>
+
+
+</html>
