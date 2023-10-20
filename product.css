@@ -128,7 +128,7 @@ body{
 }
 .card img{
     width: 100%;
-    /* border-radius: 5px 5px 0px 0px; */
+    /* border-radius: 8px 8px 0px 0px; */
     height: 319px;
    
 }
@@ -156,16 +156,25 @@ body{
     /* border-radius: 5px 5px 0px 0px; */
 }
 .card{
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
     border: 1px solid black;
     text-align: center;
     width: 100%;
-    /* border-radius: 5px; */
+    /* border-radius: 10px; */
     background-color:rgb(240, 230, 230) ;
     height: auto;
-    box-shadow: 2px 2px 5px 2px rgb(99, 99, 99);
+    box-shadow: 2px 2px 5px 2px rgb(143, 143, 143);
+}
+.card:hover{
+    box-shadow: 2px 2px 5px 6px rgb(99, 99, 99);
 }
 .card-body{
-    height: au;
+    /* height: au; */
+    /* display: flex; */
+    /* flex-wrap: nowrap; */
+    text-align: center;
 }
 .card button{
     color: rgb(0, 0, 0);
@@ -176,6 +185,7 @@ body{
     margin-top: 2%;
     border: 1px solid black;
     position: sticky;
+    
 }
 
 .card p{
@@ -184,8 +194,9 @@ body{
 }
 .card button:hover{
    
-    background-color: grey;
-   
+    background-color: rgb(60, 60, 58);
+    color: aliceblue;
+    
     cursor: pointer;
 
 }
@@ -205,8 +216,24 @@ body{
 .PageButton:hover{
     cursor: pointer;
 }
+/* @media screen and (max-width: 1400px){
+    .card-List{
+        display: grid;
+        grid-template-columns: repeat(3, 1fr);
+    }
 
-@media screen and (max-width: 650px){
+} */
+
+/* @media screen and (max-width: 980px){
+    .card-List{
+        display: grid;
+        grid-template-columns: repeat(2, 1fr);
+        margin: 50px;
+    }
+
+} */
+
+@media screen and (max-width: 720px){
     .card-List{
         display: grid;
         grid-template-columns: repeat(2, 1fr);
@@ -227,14 +254,51 @@ body{
         height: 40px;
         /* margin-top: ; */
     }
+
+
+    .PageButton:first-child{
+        width: 10%;
+    }
+    .PageButton:last-child{
+        width: 10%;
+    }
+
+
+    .PageButton:nth-child(2){
+        display: none;
+    }
+    .PageButton:nth-child(3){
+        display: none;
+    }
+    .PageButton:nth-child(4){
+        display: none;
+    }
+
+
 }
-@media screen and (max-width: 480px){
+@media screen and (max-width: 580px){
     .card-List{
         display: grid;
      
         grid-template-columns: repeat(1, 1fr);
       
     }
+
+
+    .PageButton:nth-child(2){
+        display: none;
+    }
+    .PageButton:nth-child(3){
+        display: none;
+    }
+    /* .PageButton:nth-child(4){
+        display: none;
+    } */
+    /* .PageButton:nth-child(5){
+        display: none;
+    } */
+
+
 }
 @media screen and (max-width: 400px){
     #funDiv>button:last-child{
@@ -247,4 +311,26 @@ body{
        /* display: none; */
        width: 20%;
     }
+
+    .PageButton:nth-child(2){
+        display: none;
+    }
+    .PageButton:nth-child(3){
+        display: none;
+    }
+    /* .PageButton:nth-child(4){
+        display: none;
+    } */
+    /* .PageButton:nth-child(5){
+        display: none;
+    } */
+
+
+    .PageButton:first-child{
+        width: 15%;
+    }
+    .PageButton:last-child{
+        width: 15%;
+    }
+
 }

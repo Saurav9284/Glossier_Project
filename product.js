@@ -12,10 +12,10 @@ let popUPaddedBag = document.getElementById("popUP-addedBag");
 let Pagination = document.getElementById("pagination_Wrapper");
 
 // localStorage For Id:-
-
 let productID = JSON.parse(localStorage.getItem("ProductId"))||[];
-// console.log(productID);
 let ProDetails = JSON.parse(localStorage.getItem("ProDetails"))||[];
+
+
 
 // Sorting
 var selectElement = document.getElementById('sortBy');
@@ -25,15 +25,14 @@ selectElement.addEventListener('change', function() {
     var selectedOption = selectElement.options[selectElement.selectedIndex];
     
     if (selectedOption.value === 'LOWTOHIGH') {
-        DataLoad(`${URLdata}?_sort=price&_order=asc`,1,8)
+        DataLoad(`${URLdata}`,`_sort=price&_order=asc`,1,8)
         console.log('HI');
-        loginData(URLdata)
     }
     else if (selectedOption.value === 'HIGHTOLOW') {
-        DataLoad(`${URLdata}?_sort=price&_order=desc`,1,8)
+        DataLoad(`${URLdata}`,`_sort=price&_order=desc`,1,8)
         console.log('NO');
     }else{
-        DataLoad(URLdata,1,8);
+        DataLoad(URLdata,"",1,8);
     }
 });
 
@@ -44,19 +43,19 @@ selectCatogery.addEventListener('change',()=>{
     var selected_Catogery = selectCatogery.options[selectCatogery.selectedIndex];
 
     if(selected_Catogery.value ==="DRYSkin"){
-        DataLoad(`${URLdata}?title=json-server&type=Dry`,1,8);
+        DataLoad(`${URLdata}`,`title=json-server&type=Dry`,1,8);
         console.log("Dry")
     }
     else if(selected_Catogery.value ==="OILYSkin"){
-        DataLoad(`${URLdata}?title=json-server&type=Oil`,1,8);
+        DataLoad(`${URLdata}`,`title=json-server&type=Oil`,1,8);
         console.log("Oil")
     }
     else if(selected_Catogery.value ==="NormalSKIN"){
-        DataLoad(`${URLdata}?title=json-server&type=Normal`,1,8);
+        DataLoad(`${URLdata}`,`title=json-server&type=Normal`,1,8);
         console.log("Normal")
     }
     else{
-        DataLoad(URLdata,1,8);
+        DataLoad(URLdata,"",1,8);
     }
 })
 
@@ -65,69 +64,70 @@ selectCatogery.addEventListener('change',()=>{
 // buttons 
 let btnAll=document.getElementById("btnAll");
 btnAll.addEventListener("click", ()=>{
-    DataLoad(URLdata,1,12)
+    DataLoad(URLdata,"",1,12)
 console.log("1")
 })
 
 let btnFace=document.getElementById("btnFace");
 btnFace.addEventListener("click", ()=>{
-    DataLoad(`${URLdata}?title=json-server&catogery=face`,null,8)
+    DataLoad(`${URLdata}`,`title=json-server&catogery=face`,null,12)
 console.log("2")
 })
 
 let btnEyes=document.getElementById("btnEyes");
 btnEyes.addEventListener("click", ()=>{
-    DataLoad(`${URLdata}?title=json-server&catogery=Eyes`,null,8)
+    DataLoad(`${URLdata}`,`title=json-server&catogery=Eyes`,null,12)
 console.log("3")
 })
 
 let btnLips=document.getElementById("btnLips");
 btnLips.addEventListener("click", ()=>{
-    DataLoad(`${URLdata}?title=json-server&catogery=lips`,null,8)
+    DataLoad(`${URLdata}`,`title=json-server&catogery=lips`,null,12)
 console.log("4")
 })
 
 let btnTools=document.getElementById("btnTools");
 btnTools.addEventListener("click", ()=>{
-    DataLoad(`${URLdata}?title=json-server&catogery=Tools`,null,8)
+    DataLoad(`${URLdata}`,`title=json-server&catogery=Tools`,null,12)
 console.log("5")
 })
 
 
-DataLoad(URLdata,1,12);
+DataLoad(URLdata,"",1,12);
 
 // DataLoad(url)
-async function DataLoad(url,page,limit){
+async function DataLoad(url,queryParameter,page,limit){
     mainSection.innerHTML="";
     try {
-        if(url===URLdata){
-        let res = await fetch(`${url}?_page=${page ||1}&_limit=${limit || 16}`);
+        // if(queryParameter==""){
+        let res = await fetch(`${url}?${queryParameter || ""}&_page=${page ||1}&_limit=${limit || 16}`);
 
         let TotalD = res.headers.get("X-Total-Count")
-        let DataPer = limit || 12;
+        let DataPer = limit;
         let TotalPage = Math.ceil(TotalD/DataPer);
         console.log(TotalD);
-
-        Pagination.innerHTML="";
-        for(let i=1;i<=TotalPage;i++){
-            let button = document.createElement("button");
-            button.innerText=i;
-            button.classList.add("PageButton");
-            Pagination.append(button)
-        };
+        PaginationData(TotalPage)
 
         let data = await res.json();
         console.log(data)
 
         DisplayData(data);
-    }else{
-        let res = await fetch(`${url}&_page=${page ||1}&_limit=${limit || 12}`);
+    // }else{
+    //     let res = await fetch(`${url}&_page=${page ||1}&_limit=${limit || 12}`);
 
-        let data = await res.json();
-        console.log(data)
+    //     let TotalD = res.headers.get("X-Total-Count")
+    //     let DataPer = limit;
+    //     let TotalPage = Math.ceil(TotalD/DataPer);
+    //     PaginationData(TotalPage,queryParameter)
 
-        DisplayData(data);
-    }
+
+    //     console.log(TotalD);
+
+    //     let data = await res.json();
+    //     console.log(data)
+
+    //     DisplayData(data);
+    // }
     } catch (error) {
         console.log(error);
     }
@@ -159,6 +159,7 @@ function DisplayData(item){
             ProDetails.push(objProD);
             let ProDetDATA = JSON.stringify(ProDetails) 
             localStorage.setItem("ProDetails",ProDetDATA);
+            window.location.href="./cart"
 
 
         });
@@ -275,11 +276,104 @@ function DisplayData(item){
     mainSection.append(cardList)
 }
 
-let page = 1;
 
-function PaginationData(){
+let num=0;
+let pre=0;
+function PaginationData(TotalPage,queryParameter){
 
+    Pagination.innerHTML="";
+    let buttonpre = document.createElement("button");
+        buttonpre.innerText="Prev..";
+        buttonpre.classList.add("PageButton");
+        buttonpre.setAttribute("id","pre");
+        buttonpre.addEventListener("click",()=>{
+           
+            pre--;
+            if(pre>=2)
+            console.log(pre);
+            DataLoad(URLdata,queryParameter,pre,8)
+        });
+
+
+        Pagination.append(buttonpre);
+        if(TotalPage>1){
+
+    for(let i=1;i<=TotalPage;i++){
+        let button = document.createElement("button");
+        button.innerText=i;
+        button.classList.add("PageButton");
+        button.addEventListener("click",()=>{
+            console.log(i)
+            DataLoad(URLdata,queryParameter,i,8)
+            num=i;
+        });
+
+        Pagination.append(button)
+    };
+
+
+    let buttonNext = document.createElement("button");
+    buttonNext.innerText="Next";
+    buttonNext.classList.add("PageButton");
+    buttonNext.setAttribute("id","next");
+    
+
+    buttonNext.addEventListener("click",()=>{
+        console.log("Next")
+        
+        num=num%TotalPage;
+        num++
+        console.log(num);
+        DataLoad(URLdata,queryParameter,num,8)
+    });
+
+
+    Pagination.append(buttonNext);
 }
+}
+
+
+
+
+// async function PaginationData(url) {
+//     try {
+//       let res = await fetch(url);
+//       // console.log(res.headers.get("X-Total-Count"));
+//       let data = await res.json();
+//       // console.log(data);
+//       console.log(data.length);
+//       console.log(url);
+  
+//       let n = data.length;
+//       let pageNum = Math.ceil(n / 5);
+//       Pagination.innerHTML = "";
+  
+//       for (let i = 1; i <= pageNum; i++) {
+//         let btn = document.createElement("button");
+//         btn.innerText = i;
+//         btn.addEventListener("click", () => {
+//           if (url === URLdata) {
+//             let newUrl = url + `?_page=${i}&_limit=5`;
+//             DataLoad(newUrl);
+//           } else {
+//             let newUrl = url + `&_page=${i}&_limit=5`;
+//             DataLoad(newUrl);
+//           }
+//         });
+//         // Pagination.append(buttonNext);
+//         Pagination.append(btn);
+//       }
+  
+//       if (url === URLdata) {
+//         DataLoad(url + `?_page=1&_limit=5`);
+//       } else {
+//         DataLoad(url + `&_page=1&_limit=5`);
+//       }
+//     } catch (err) {
+//       console.log(err);
+//     }
+//   }
+
 
 let obj={
     
