@@ -1,8 +1,4 @@
 
-
-
-
-
 let URLdata = "https://cwproject-unit5.onrender.com/products";
 // let URLdata = "./data.JSON";
 
@@ -26,14 +22,14 @@ selectElement.addEventListener('change', function() {
     var selectedOption = selectElement.options[selectElement.selectedIndex];
     
     if (selectedOption.value === 'LOWTOHIGH') {
-        PaginationData(URLdata,`?_sort=price&_order=asc`,1,8)
+        DataLoad(`${URLdata}`,`_sort=price&_order=asc`,1,8)
         console.log('HI');
     }
     else if (selectedOption.value === 'HIGHTOLOW') {
-        PaginationData(URLdata,`?_sort=price&_order=desc`,1,8)
+        DataLoad(`${URLdata}`,`_sort=price&_order=desc`,1,8)
         console.log('NO');
     }else{
-        PaginationData(URLdata,"",1,8);
+        DataLoad(URLdata,"",1,8);
     }
 });
 
@@ -44,22 +40,19 @@ selectCatogery.addEventListener('change',()=>{
     var selected_Catogery = selectCatogery.options[selectCatogery.selectedIndex];
 
     if(selected_Catogery.value ==="DRYSkin"){
-        PaginationData(`${URLdata}`,`?_title=json-server&type=Dry`,1,12);
-        PageButton.style.display="none";
+        DataLoad(`${URLdata}`,`title=json-server&type=Dry`,1,8);
         console.log("Dry")
     }
     else if(selected_Catogery.value ==="OILYSkin"){
-        PaginationData(`${URLdata}`,`?_title=json-server&type=Oil`,1,12);
-        PageButton.style.display="none";
+        DataLoad(`${URLdata}`,`title=json-server&type=Oil`,1,8);
         console.log("Oil")
     }
     else if(selected_Catogery.value ==="NormalSKIN"){
-        // PageButton.style.display="none";
-        PaginationData(`${URLdata}`,`?_title=json-server&type=Normal`,1,12);
+        DataLoad(`${URLdata}`,`title=json-server&type=Normal`,1,8);
         console.log("Normal")
     }
     else{
-        PaginationData(URLdata,"",1,8);
+        DataLoad(URLdata,"",1,8);
     }
 })
 
@@ -68,53 +61,70 @@ selectCatogery.addEventListener('change',()=>{
 // buttons 
 let btnAll=document.getElementById("btnAll");
 btnAll.addEventListener("click", ()=>{
-    PaginationData(URLdata,"",1,12)
+    DataLoad(URLdata,"",1,12)
 console.log("1")
 })
 
 let btnFace=document.getElementById("btnFace");
 btnFace.addEventListener("click", ()=>{
-    PaginationData(`${URLdata}`,`?_title=json-server&catogery=face`,null,12)
-
+    DataLoad(`${URLdata}`,`title=json-server&catogery=face`,null,12)
 console.log("2")
 })
 
 let btnEyes=document.getElementById("btnEyes");
 btnEyes.addEventListener("click", ()=>{
-    PaginationData(`${URLdata}`,`?_title=json-server&catogery=Eyes`,null,12)
+    DataLoad(`${URLdata}`,`title=json-server&catogery=Eyes`,null,12)
 console.log("3")
 })
 
 let btnLips=document.getElementById("btnLips");
 btnLips.addEventListener("click", ()=>{
-    PaginationData(`${URLdata}`,`?_title=json-server&catogery=lips`,null,12)
+    DataLoad(`${URLdata}`,`title=json-server&catogery=lips`,null,12)
 console.log("4")
 })
 
 let btnTools=document.getElementById("btnTools");
 btnTools.addEventListener("click", ()=>{
-    PaginationData(`${URLdata}`,`?_title=json-server&catogery=Tools`,null,12)
+    DataLoad(`${URLdata}`,`title=json-server&catogery=Tools`,null,12)
 console.log("5")
 })
 
 
-PaginationData(URLdata,"",1,12);
+DataLoad(URLdata,"",1,12);
 
-
-async function DataLoad(url){
+// DataLoad(url)
+async function DataLoad(url,queryParameter,page,limit){
     mainSection.innerHTML="";
     try {
         // if(queryParameter==""){
-        let res = await fetch(url);
+        let res = await fetch(`${url}?${queryParameter || ""}&_page=${page ||1}&_limit=${limit || 16}`);
 
-
-        // PaginationData(URLdata,TotalPage,12)
+        let TotalD = res.headers.get("X-Total-Count")
+        let DataPer = limit;
+        let TotalPage = Math.ceil(TotalD/DataPer);
+        console.log(TotalD);
+        PaginationData(TotalPage)
 
         let data = await res.json();
         console.log(data)
 
         DisplayData(data);
- 
+    // }else{
+    //     let res = await fetch(`${url}&_page=${page ||1}&_limit=${limit || 12}`);
+
+    //     let TotalD = res.headers.get("X-Total-Count")
+    //     let DataPer = limit;
+    //     let TotalPage = Math.ceil(TotalD/DataPer);
+    //     PaginationData(TotalPage,queryParameter)
+
+
+    //     console.log(TotalD);
+
+    //     let data = await res.json();
+    //     console.log(data)
+
+    //     DisplayData(data);
+    // }
     } catch (error) {
         console.log(error);
     }
@@ -225,7 +235,11 @@ function DisplayData(item){
         cartbtn.addEventListener("click",()=>{
             cartbtn.innerHTML="Added";
             cartbtn.style.color="white";
-
+        popUPaddedBagh2.style.innerHTML="Item Added To Bag";
+            setTimeout(() => {
+                popUPaddedBag.style.display="none";
+            }, 1000);
+            popUPaddedBag.style.display="block";
             
            
             let obj={
@@ -246,7 +260,7 @@ function DisplayData(item){
             //     // window.location.href="./cart.html";
             // }, 1000);
 
-        //    console.log(obj);
+           console.log(obj);
         });
 
         let wishList = document.createElement("button");
@@ -254,7 +268,7 @@ function DisplayData(item){
         wishList.setAttribute("class","wishList")
         wishList.addEventListener("click",()=>{
 
-            // popUPaddedBagh2.style.innerText="Item Added To WishList";
+            popUPaddedBagh2.style.innerText="Item Added To WishList";
 
             let obj={
                 id:ele.id,
@@ -272,6 +286,12 @@ function DisplayData(item){
             let localData = JSON.stringify(ProWish);
             localStorage.setItem("ProWISHLIST",localData);
 
+
+            setTimeout(() => {
+                popUPaddedBag.style.display="none";
+                popUPaddedBagh2.style.innerText="Item Added To WishList"
+            }, 1000);
+            popUPaddedBag.style.display="block";
         })
 
 
@@ -299,60 +319,56 @@ function DisplayData(item){
 
 
 let num=0;
+function PaginationData(TotalPage,queryParameter){
+    let pre=TotalPage;
+
+    Pagination.innerHTML="";
+    let buttonpre = document.createElement("button");
+        buttonpre.innerText="Prev..";
+        buttonpre.classList.add("PageButton");
+        buttonpre.setAttribute("id","pre");
+        buttonpre.addEventListener("click",()=>{
+           
+            pre--;
+            if(pre>=2)
+            console.log(pre);
+            DataLoad(URLdata,queryParameter,pre,8)
+        });
 
 
-async function PaginationData(url,queryParameter,page,limit){
+        Pagination.append(buttonpre);
+        if(TotalPage>1){
+
+    for(let i=1;i<=TotalPage;i++){
+        let button = document.createElement("button");
+        button.innerText=i;
+        button.classList.add("PageButton");
+        button.addEventListener("click",()=>{
+            console.log(i)
+            DataLoad(URLdata,queryParameter,i,8)
+            num=i;
+        });
+
+        Pagination.append(button)
+    };
+
+
+    let buttonNext = document.createElement("button");
+    buttonNext.innerText="Next";
+    buttonNext.classList.add("PageButton");
+    buttonNext.setAttribute("id","next");
     
- try {
-         let res = await fetch(url);
-         // console.log(res.headers.get("X-Total-Count"));
-         
-         let data = await res.json();
-         // console.log(data);
-         console.log(data.length);
-       //   console.log(url);
-         let n = data.length;
-      //   console.log(n)
-        let pageNum = Math.ceil(n / limit);
-        Pagination.innerHTML = "";
-        if(pageNum>1){
-        for (let i = 1; i <= pageNum; i++) {
-          let btn = document.createElement("button");
-          btn.innerText = i;
 
-          btn.classList.add("PageButton");
-
-          btn.addEventListener("click", () => {
-            if (queryParameter==="") {
-              let newUrl = url + `?_page=${i}&_limit=${limit}`;
-              console.log(newUrl)
-              DataLoad(newUrl);
-            } else {
-              let newUrl = url + `${queryParameter}&_page=${i}&_limit=${limit}`;
-              console.log(newUrl)
-              DataLoad(newUrl);
-              
-            }
-          
-          });
-         
-          Pagination.append(btn);
-        }
-      }
+    buttonNext.addEventListener("click",()=>{
+        console.log("Next")
         
-     
-        if (queryParameter==="") {
-          DataLoad(url + `?_page=1&_limit=${limit}`);
-          console.log("first")
-        } else {
-          DataLoad(url + `${queryParameter}&_page=1&_limit=${limit}`);
-          console.log("second")
-        }
-      } 
-      catch (err) {
-        console.log(err);
-       }
+        num=num%TotalPage;
+        num++
+        console.log(num);
+        DataLoad(URLdata,queryParameter,num,8)
+    });
 
-    // Pagination.append(buttonNext);
 
+    Pagination.append(buttonNext);
+}
 }

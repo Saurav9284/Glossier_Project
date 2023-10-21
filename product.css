@@ -6,7 +6,7 @@
     padding: 0px;
 }
 
-#popUP-addedBag {
+/* #popUP-addedBag {
     display: none;
     position: fixed;
     top: 0;
@@ -26,7 +26,7 @@
     padding: 20px;
     text-align: center;
     border-radius: 5px;
-}
+} */
 
 
 #catogeryID{
@@ -265,22 +265,6 @@ body{
 .PageButton:hover{
     cursor: pointer;
 }
-/* @media screen and (max-width: 1400px){
-    .card-List{
-        display: grid;
-        grid-template-columns: repeat(3, 1fr);
-    }
-
-} */
-
-/* @media screen and (max-width: 980px){
-    .card-List{
-        display: grid;
-        grid-template-columns: repeat(2, 1fr);
-        margin: 50px;
-    }
-
-} */
 
 
 @media screen and (max-width: 1200px){
@@ -288,6 +272,10 @@ body{
         display: grid;
         grid-template-columns: repeat(3, 1fr);
     }
+    .PageButton{
+        width: 10%;
+    }
+
 }
     
 @media screen and (max-width: 750px){
@@ -316,7 +304,11 @@ body{
         /* margin-top: ; */
     }
 
+    .PageButton{
+        width: 12%;
+    }
 
+/* 
     .PageButton:first-child{
         width: 10%;
     }
@@ -333,7 +325,7 @@ body{
     }
     .PageButton:nth-child(4){
         display: none;
-    }
+    } */
 
 
 }
@@ -361,13 +353,19 @@ body{
         display: none;
     }
 
+
+    .PageButton{
+        width: 15%;
+    }
+
+/* 
     .PageButton:nth-child(2){
         display: none;
     }
     .PageButton:nth-child(3){
         display: none;
     }
-
+ */
 
     /* .PageButton:nth-child(4){
         display: none;
@@ -395,16 +393,7 @@ body{
     }
 
     
-    .PageButton:nth-child(2){
-        display: none;
-    }
-    .PageButton:nth-child(3){
-        display: none;
-    }
-    .PageButton:first-child{
-        width: 15%;
-    }
-    .PageButton:last-child{
+    .PageButton{
         width: 15%;
     }
 
