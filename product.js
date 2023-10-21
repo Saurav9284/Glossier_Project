@@ -14,7 +14,7 @@ let Pagination = document.getElementById("pagination_Wrapper");
 // localStorage For Id:-
 let productID = JSON.parse(localStorage.getItem("ProductId"))||[];
 let ProDetails = JSON.parse(localStorage.getItem("ProDetails"))||[];
-
+let ProWish = JSON.parse(localStorage.getItem("ProWISHLIST")) || [];
 
 
 // Sorting
@@ -187,12 +187,9 @@ function DisplayData(item){
         imgWish2.src = "https://upload.wikimedia.org/wikipedia/commons/thumb/f/f1/Heart_coraz%C3%B3n.svg/800px-Heart_coraz%C3%B3n.svg.png";
         imgWish2.alt = "image";
 
-        // img.append(imgWish)
+        
         cardImage.append(img);
         cardImage.append(img2);
-        // cardImage.append(imgWish);
-        // cardImage.append(imgWish2);
-
 
         let cardBody = document.createElement("div");
         cardBody.setAttribute("class" , "card-body");
@@ -230,18 +227,24 @@ function DisplayData(item){
         price.setAttribute("class" ,"price")
         price.innerHTML = "Rs. "+ele.price+"/-";
 
+        let cardBtnDiv = document.createElement("div");
+        cardBtnDiv.setAttribute("class","cardBtnDiv");
+
+
+
         let cartbtn = document.createElement("button");
         cartbtn.classList.add("cartbtn");
         cartbtn.innerHTML = "Add to bag";
         cartbtn.addEventListener("click",()=>{
             cartbtn.innerHTML="Added";
-            cartbtn.style.color="green";
+            cartbtn.style.color="white";
 
             setTimeout(() => {
                 popUPaddedBag.style.display="none";
-            }, 500);
+            }, 1000);
             popUPaddedBag.style.display="block";
-
+            
+           
             let obj={
                 id:ele.id,
                 price:ele.price,
@@ -254,14 +257,48 @@ function DisplayData(item){
             productID.push(obj);
             var localData = JSON.stringify(productID)
             localStorage.setItem("ProductId",localData);
+
+            
+            // setTimeout(() => {
+            //     // window.location.href="./cart.html";
+            // }, 1000);
+
            console.log(obj);
         });
+
+        let wishList = document.createElement("button");
+        wishList.innerText="WishList";
+        wishList.setAttribute("class","wishList")
+        wishList.addEventListener("click",()=>{
+
+            let obj={
+                id:ele.id,
+                price:ele.price,
+                img:ele.img,
+                img2:ele.img2,
+                type:ele.type,
+                catogery:ele.catogery,
+                details:ele.details
+            }
+            wishList.innerHTML="Added";
+            wishList.style.color="#ca4e46";
+            
+            ProWish.push(obj);
+            let localData = JSON.stringify(ProWish);
+            localStorage.setItem("ProWISHLIST",localData);
+
+
+        })
+
+
+        cardBtnDiv.append(cartbtn);
+        cardBtnDiv.append(wishList);
 
         cardBody.append(details)
         cardBody.append(usage)
         // cardBody.append(rating)
         cardBody.append(price)
-        cardBody.append(cartbtn)
+        cardBody.append(cardBtnDiv)
 
         cardBody.append(catogery)
         cardBody.append(type)
@@ -278,8 +315,8 @@ function DisplayData(item){
 
 
 let num=0;
-let pre=0;
 function PaginationData(TotalPage,queryParameter){
+    let pre=TotalPage;
 
     Pagination.innerHTML="";
     let buttonpre = document.createElement("button");
