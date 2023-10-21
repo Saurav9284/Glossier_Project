@@ -9,6 +9,7 @@ let URLdata = "https://cwproject-unit5.onrender.com/products";
 
 let mainSection = document.getElementById("MainDataDiv");
 let popUPaddedBag = document.getElementById("popUP-addedBag");
+let popUPaddedBagh2 = document.getElementById("popUP-addedBagH2");
 let Pagination = document.getElementById("pagination_Wrapper");
 
 // localStorage For Id:-
@@ -238,7 +239,7 @@ function DisplayData(item){
         cartbtn.addEventListener("click",()=>{
             cartbtn.innerHTML="Added";
             cartbtn.style.color="white";
-
+        popUPaddedBagh2.style.innerHTML="Item Added To Bag";
             setTimeout(() => {
                 popUPaddedBag.style.display="none";
             }, 1000);
@@ -271,6 +272,8 @@ function DisplayData(item){
         wishList.setAttribute("class","wishList")
         wishList.addEventListener("click",()=>{
 
+            popUPaddedBagh2.style.innerText="Item Added To WishList";
+
             let obj={
                 id:ele.id,
                 price:ele.price,
@@ -288,6 +291,11 @@ function DisplayData(item){
             localStorage.setItem("ProWISHLIST",localData);
 
 
+            setTimeout(() => {
+                popUPaddedBag.style.display="none";
+                popUPaddedBagh2.style.innerText="Item Added To WishList"
+            }, 1000);
+            popUPaddedBag.style.display="block";
         })
 
 

@@ -27,6 +27,8 @@
     text-align: center;
     border-radius: 5px;
 }
+
+
 #catogeryID{
     cursor: pointer;
 }
@@ -343,6 +345,21 @@ body{
       
     }
 
+    #itemDiv>select{
+        padding: 0px;
+        
+    }
+
+    #funDiv>button{
+        width: 20%;
+    }
+
+    #funDiv>button:last-child{
+        display: none;
+    }
+    #funDiv>button:nth-child(4){
+        display: none;
+    }
 
     .PageButton:nth-child(2){
         display: none;
@@ -350,6 +367,8 @@ body{
     .PageButton:nth-child(3){
         display: none;
     }
+
+
     /* .PageButton:nth-child(4){
         display: none;
     } */
@@ -371,25 +390,28 @@ body{
        width: 20%;
     }
 
+    #funDiv>button{
+        width: 20%;
+    }
+
+    
     .PageButton:nth-child(2){
         display: none;
     }
     .PageButton:nth-child(3){
         display: none;
     }
-    /* .PageButton:nth-child(4){
-        display: none;
-    } */
-    /* .PageButton:nth-child(5){
-        display: none;
-    } */
-
-
     .PageButton:first-child{
         width: 15%;
     }
     .PageButton:last-child{
         width: 15%;
+    }
+
+
+    #itemDiv>select{
+        padding: 0px;
+
     }
 
 }
