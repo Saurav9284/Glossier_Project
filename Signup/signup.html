@@ -33,9 +33,19 @@
    
 </head>
 
-<body>
+<body style="background-image: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)), url(img2..jpg);">
     <!-- <div class="navbar"></div> -->
-    <section class="vh-100" style="background-image: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)), url(img2..jpg);">
+    <div class="spinner-border text-secondary" role="status" id="spinner">
+        <span class="sr-only">Loading...</span>
+    </div>
+
+    <div id="alert-container">
+        <div id="alert">
+            <p id="alert-msg">Please fill all the required details!</p>
+            <button>OK</button>
+        </div>
+    </div>
+    <section class="vh-100">
         <div class="container py-5 h-100">
             <div class="row d-flex justify-content-center align-items-center h-100" id="signupbox">
                 <div class="col col-xl-10">
@@ -104,3 +114,108 @@
 </html>
 <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/mdb-ui-kit/6.4.1/mdb.min.js"></script>
 
+<script type="module">
+
+   
+
+    import { initializeApp } from "https://www.gstatic.com/firebasejs/10.1.0/firebase-app.js";
+    import { getAnalytics } from "https://www.gstatic.com/firebasejs/10.1.0/firebase-analytics.js";
+    import {
+        getAuth,
+        createUserWithEmailAndPassword,
+        GoogleAuthProvider,
+        signInWithPopup,
+    } from "https://www.gstatic.com/firebasejs/10.1.0/firebase-auth.js";
+    import {
+        getDatabase,
+        ref,
+        set,
+    } from "https://www.gstatic.com/firebasejs/10.1.0/firebase-database.js";
+      const firebaseConfig = {
+        apiKey: "AIzaSyAGpHrB0sm21lPXpz4OtoSKWVLFb-jisb8",
+        authDomain: "glossier-eba28.firebaseapp.com",
+        projectId: "glossier-eba28",
+        storageBucket: "glossier-eba28.appspot.com",
+        messagingSenderId: "79396284003",
+        appId: "1:79396284003:web:e7b409f936564e49b6fa56",
+        measurementId: "G-G7STPRSJ5S",
+      };
+
+    // Initialize Firebase
+    const app = initializeApp(firebaseConfig);
+    const analytics = getAnalytics(app);
+    const auth = getAuth();
+    const provider = new GoogleAuthProvider();
+    const database = getDatabase();
+
+    const signUpButton = document.getElementById("signupbtn");
+    let spinner = document.getElementById("spinner");
+
+    signUpButton.addEventListener("click", function () {
+        event.preventDefault();
+        const nameInput = document.getElementById("name");
+        const emailInput = document.getElementById("form2Example17");
+        const passwordInput = document.getElementById("form2Example27");
+        const name = nameInput.value;
+        const email = emailInput.value;
+        const password = passwordInput.value;
+        if (!name || !email || !password) {
+            document.querySelector("#alert-msg").textContent =
+                "Please fill all the required details!";
+            document.querySelector("#alert-container").style.display = "block";
+            return; // Exit the function if fields are not filled
+        }
+        spinner.style.display = "block";
+        createUserWithEmailAndPassword(auth, email, password)
+            .then((userCredential) => {
+                const user = userCredential.user;
+                let userId = user.uid;
+                let [firstName, lastName] = name.split(" ");
+
+                localStorage.setItem("userName", firstName);
+                set(ref(database, "users/" + userId), {
+                    username: name,
+                    email: email,
+                }).then(function () {
+                    window.location.assign("../index.html");
+                });
+            })
+            .catch((error) => {
+                spinner.style.display = "none";
+
+                document.querySelector("#alert-msg").textContent =
+                    "Account already registered";
+                document.querySelector("#alert-container").style.display = "block";
+
+                const errorMessage = error.message;
+                console.log(errorMessage);
+            });
+    });
+
+
+    let googlebtn = document.getElementById("googlebtn");
+    googlebtn.addEventListener("click", (event) => {
+        event.preventDefault();
+        signInWithPopup(auth, provider)
+            .then((result) => {
+                const user = result.user;
+                let [firstName, lastName] = user.displayName.split(" ");
+                spinner.style.display = "block";
+
+                localStorage.setItem("userName", firstName);
+                window.location.assign("../index.html");
+            })
+            .catch((error) => {
+                spinner.style.display = "none";
+
+
+
+                const errorMessage = error.message;
+                console.log(errorMessage);
+            });
+    });
+
+    document.querySelector("#alert button").addEventListener("click", () => {
+        document.querySelector("#alert-container").style.display = "none";
+    });
+</script>
