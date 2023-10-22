@@ -98,24 +98,27 @@
 </body>
 
 </html>
-<script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/mdb-ui-kit/6.4.1/mdb.min.js"></script>
-<!-- <script src="./Components/loginIMPORT.js" type="module"></script> -->
+<script
+  type="text/javascript"
+  src="https://cdnjs.cloudflare.com/ajax/libs/mdb-ui-kit/6.4.1/mdb.min.js"
+></script>
+<script src="./components/loginIMPORT.js" type="module"></script>
 
 <script type="module">
-import { initializeApp } from "https://www.gstatic.com/firebasejs/10.1.0/firebase-app.js";
-import {
+  import { initializeApp } from "https://www.gstatic.com/firebasejs/10.1.0/firebase-app.js";
+  import {
     getAuth,
     signInWithEmailAndPassword,
     GoogleAuthProvider,
     signInWithPopup,
-} from "https://www.gstatic.com/firebasejs/10.1.0/firebase-auth.js";
-import {
+  } from "https://www.gstatic.com/firebasejs/10.1.0/firebase-auth.js";
+  import {
     getDatabase,
     ref,
     onValue,
-} from "https://www.gstatic.com/firebasejs/10.1.0/firebase-database.js";
+  } from "https://www.gstatic.com/firebasejs/10.1.0/firebase-database.js";
 
-const firebaseConfig = {
+  const firebaseConfig = {
     apiKey: "AIzaSyAGpHrB0sm21lPXpz4OtoSKWVLFb-jisb8",
     authDomain: "glossier-eba28.firebaseapp.com",
     projectId: "glossier-eba28",
@@ -123,16 +126,16 @@ const firebaseConfig = {
     messagingSenderId: "79396284003",
     appId: "1:79396284003:web:e7b409f936564e49b6fa56",
     measurementId: "G-G7STPRSJ5S",
-};
-const app = initializeApp(firebaseConfig);
-const auth = getAuth();
-const provider = new GoogleAuthProvider();
-const database = getDatabase();
+  };
+  const app = initializeApp(firebaseConfig);
+  const auth = getAuth();
+  const provider = new GoogleAuthProvider();
+  const database = getDatabase();
 
-const signInButton = document.getElementById("signinbtn");
-let spinner = document.getElementById("spinner");
+  const signInButton = document.getElementById("signinbtn");
+  let spinner = document.getElementById("spinner");
 
-signInButton.addEventListener("click", (event) => {
+  signInButton.addEventListener("click", (event) => {
     event.preventDefault();
     const emailInput = document.getElementById("form2Example17");
     const passwordInput = document.getElementById("form2Example27");
@@ -140,64 +143,64 @@ signInButton.addEventListener("click", (event) => {
     const password = passwordInput.value;
 
     if (!email || !password) {
-        document.querySelector("#alert-msg").textContent =
-            "Please fill all the required details!";
-        document.querySelector("#alert-container").style.display = "block";
+      document.querySelector("#alert-msg").textContent =
+        "Please fill all the required details!";
+      document.querySelector("#alert-container").style.display = "block";
 
-        return;
+      return;
     }
 
     spinner.style.display = "block";
 
     signInWithEmailAndPassword(auth, email, password)
-        .then((userCredential) => {
-            const user = userCredential.user;
-            const userId = user.uid;
-            const starCountRef = ref(database, "users/" + userId);
-            onValue(starCountRef, (snapshot) => {
-                const data = snapshot.val();
-                let [firstName, lastName] = data.username.split(" ");
+      .then((userCredential) => {
+        const user = userCredential.user;
+        const userId = user.uid;
+        const starCountRef = ref(database, "users/" + userId);
+        onValue(starCountRef, (snapshot) => {
+          const data = snapshot.val();
+          let [firstName, lastName] = data.username.split(" ");
 
-                localStorage.setItem("userName", firstName);
-                // localStorage.setItem("userName", data.username);
-                window.location.assign("../index.html");
-            });
-        })
-        .catch((error) => {
-            const errorCode = error.code;
-            const errorMessage = error.message;
-            spinner.style.display = "none";
-
-            document.querySelector("#alert-msg").textContent =
-                "Entered wrong details";
-            document.querySelector("#alert-container").style.display = "block";
-            console.log(error);
+        localStorage.setItem("userName", firstName);
+          // localStorage.setItem("userName", data.username);
+          window.location.assign("../index.html");
         });
-});
+      })
+      .catch((error) => {
+        const errorCode = error.code;
+        const errorMessage = error.message;
+        spinner.style.display = "none";
 
-let googlebtn = document.getElementById("googlebtn");
-googlebtn.addEventListener("click", (event) => {
+        document.querySelector("#alert-msg").textContent =
+          "Entered wrong details";
+        document.querySelector("#alert-container").style.display = "block";
+        console.log(error);
+      });
+  });
+
+  let googlebtn = document.getElementById("googlebtn");
+  googlebtn.addEventListener("click", (event) => {
     event.preventDefault();
 
     signInWithPopup(auth, provider)
-        .then((result) => {
-            const credential = GoogleAuthProvider.credentialFromResult(result);
-            const token = credential.accessToken;
-            const user = result.user;
+      .then((result) => {
+        const credential = GoogleAuthProvider.credentialFromResult(result);
+        const token = credential.accessToken;
+        const user = result.user;
 
-            let [firstName, lastName] = user.displayName.split(" ");
+        let [firstName, lastName] = user.displayName.split(" ");
 
-            localStorage.setItem("userName", firstName);
-            window.location.assign("../index.html");
-        })
-        .catch((error) => {
-            const errorCode = error.code;
-            const errorMessage = error.message;
-            console.log(error);
-        });
-});
+        localStorage.setItem("userName", firstName);
+        window.location.assign("../index.html");
+      })
+      .catch((error) => {
+        const errorCode = error.code;
+        const errorMessage = error.message;
+        console.log(error);
+      });
+  });
 
-document.querySelector("#alert button").addEventListener("click", () => {
+  document.querySelector("#alert button").addEventListener("click", () => {
     document.querySelector("#alert-container").style.display = "none";
-});
+  });
 </script>
