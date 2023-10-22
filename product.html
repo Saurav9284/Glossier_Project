@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Product</title>
+    <link rel="stylesheet" type="text/css" href="./product.css">
+</head>
+<body>
+    <!-- <dvi id="popUP-addedBag">
+        <div>
+            <h2 id="popUP-addedBagH2"> Item Added To Bag </h2>
+        </div>
+    </dvi> -->
+    <div id="mainDIV">
+    <div id="funDiv">
+        <button id="btnAll">All</button>
+        <button id="btnFace">Face</button>
+        <button id="btnEyes">Eyes</button>
+        <button id="btnLips">Lips</button>
+        <button id="btnTools">Tools</button>
+    </div>
+    <div id="itemDiv">
+      
+
+        <select id="catogeryID">
+            <option value="default">Type</option>
+            <option value="DRYSkin" id="DRYSkin">Dry Skin</option>
+            <option value="OILYSkin" id="OILYSkin">Oily Skin</option>
+            <option value="NormalSKIN" id="NormalSKIN">Normal Skin</option>
+        </select>
+
+        <select id="sortBy">
+            <!-- This is a comment. It won't be visible in the rendered page. -->
+            <option value="default">Sort by</option>
+            <option value="LOWTOHIGH" id="LOWTOHIGH">Price low to high</option>
+            <option value="HIGHTOLOW" id="HIGHTOLOW">Price high to low</option>
+        </select>
+    </div>
+</div>
+    
+    <div id="MainDataDiv">
+         <!-- appendi data here -->
+         
+    </div>
+
+    <div id="pagination_Wrapper">
+        
+    </div>
+</body>
+<script src="./product.js"></script>
+</html>
