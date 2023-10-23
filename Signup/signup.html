@@ -153,28 +153,30 @@
 ></script>
 
 <!-- <script type="module" src="./components/loginIMPORT.js"></script> -->
+
 <script type="module">
-  import { initializeApp } from "https://www.gstatic.com/firebasejs/10.1.0/firebase-app.js";
-  import { getAnalytics } from "https://www.gstatic.com/firebasejs/10.1.0/firebase-analytics.js";
+  ////////////////////////////
+  import { initializeApp } from "https://www.gstatic.com/firebasejs/10.5.0/firebase-app.js";
+  import { getAnalytics } from "https://www.gstatic.com/firebasejs/10.5.0/firebase-analytics.js";
   import {
     getAuth,
     createUserWithEmailAndPassword,
     GoogleAuthProvider,
     signInWithPopup,
-  } from "https://www.gstatic.com/firebasejs/10.1.0/firebase-auth.js";
+  } from "https://www.gstatic.com/firebasejs/10.5.0/firebase-auth.js";
   import {
     getDatabase,
     ref,
     set,
-  } from "https://www.gstatic.com/firebasejs/10.1.0/firebase-database.js";
+  } from "https://www.gstatic.com/firebasejs/10.5.0/firebase-database.js";
   const firebaseConfig = {
-    apiKey: "AIzaSyAGpHrB0sm21lPXpz4OtoSKWVLFb-jisb8",
-    authDomain: "glossier-eba28.firebaseapp.com",
-    projectId: "glossier-eba28",
-    storageBucket: "glossier-eba28.appspot.com",
-    messagingSenderId: "79396284003",
-    appId: "1:79396284003:web:e7b409f936564e49b6fa56",
-    measurementId: "G-G7STPRSJ5S",
+    apiKey: "AIzaSyBOesu5JHJcAkjgROYvSUpK5Z3F06cpwDk",
+    authDomain: "glossier-new.firebaseapp.com",
+    projectId: "glossier-new",
+    storageBucket: "glossier-new.appspot.com",
+    messagingSenderId: "142973716602",
+    appId: "1:142973716602:web:92bef62b382df216ff13c3",
+    measurementId: "G-YTHN1RX1S0"
   };
 
   // Initialize Firebase
