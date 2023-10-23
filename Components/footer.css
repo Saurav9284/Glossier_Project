@@ -1,0 +1,130 @@
+@import url(`https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,200;0,300;0,400;0,500;0,600;1,500;1,600&display=swap`);
+#footerSection{
+    width: 100%;
+    background-color: #322d2d;
+    padding: 50px 0px;
+}
+#footer_section1{
+    width: 100%;
+    display: flex;
+    gap: 10px;
+    align-items: flex-start;
+}
+#footer_section1>div:first-child{
+    width: 30%;
+}
+#footer_section1>div:nth-child(2){
+    width: 30%;
+}
+#footer_section1>div:last-child{
+    width: 40%;
+    text-align: right;
+    align-self: center;
+}
+.footerTitles{
+    color: var(--white-text);
+    font-size: 20px;
+    font-weight: 500;
+    margin: 10px 0px 20px 0px;
+}
+.footerMenu{
+    list-style-type: none;
+    display: block;
+}
+.footerMenu>li>a{
+    color: #eee6e6d4;
+    font-size: 14px;
+    text-decoration: none;
+    padding: 4px 0px;
+}
+.footerMenu>li>a:hover{
+    color: var(--white-text);
+}
+#footerLogo{
+    font-size: 80px;
+    font-style: italic;
+    color: var(--white-text);
+}
+#socialbtnsDiv{
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+}
+#footersocial {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    margin-left: 30px;
+}
+#footersocial i{
+    font-size: 18px;
+}
+#bottomHeading{
+    color: var(--white-text);
+    font-size: 14px;
+    padding: 4px 8px;
+    border: 1px solid #ffffff;
+    border-radius: 8px;
+}
+/* Copyright section */
+#copyrightFooter{
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+    padding: 80px 0px 10px 0px;
+}
+#copyrightFooter div:first-child{
+    width: 70%;
+}
+#copyrightFooter div:last-child{
+    width: 30%;
+}
+#copyrightUl{
+    list-style-type: none;
+}
+#copyrightUl > li{
+    display: inline;
+}
+#copyrightUl > li> a{
+   color: #eee6e6d4;
+   font-size: 12px;
+   text-decoration: none;
+   padding-right: 10px;
+   text-align: left;
+}
+#copyrightUl > li> a:hover{
+    color: var(--white-text);
+ }
+#copyrightFooter div:last-child>p{
+    color: #eee6e6d4;
+   font-size: 12px;
+   text-align: right;
+}
+@media only screen and (max-width:767px) {
+    #footer_section1{
+        flex-direction: column;
+    }
+    #footer_section1>div:last-child{
+        width: 60%;
+        text-align: center;
+    }
+    #copyrightFooter div:first-child{
+        display: none;
+    }
+    #copyrightFooter div:last-child{
+        width: 50%;
+        margin: auto;
+    }
+    #copyrightFooter div:last-child>p {
+        text-align: center;
+    }
+} 
+@media only screen and (max-width:550px) {
+    #footer_section1>div:last-child{
+        width: 80%;
+        text-align: center;
+    }
+    #footerLogo{
+        font-size: 55px;
+    }
+}
