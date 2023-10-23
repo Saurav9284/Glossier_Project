@@ -273,8 +273,34 @@ function mobile() {
       x.classList.add("mobilemenu"); // Add the class "mobilemenu"
   }
 }
+
 let isLoggedIn = localStorage.getItem("userName");
 let userHello = document.getElementById("userHello")
+document.addEventListener("DOMContentLoaded", function () {
+  var userDropdown = document.getElementById("user-dropdown");
+  var dropdownContent = document.getElementById("user-dropdown-content");
+  var loginLink = document.getElementById("login-link");
+  var signupLink = document.getElementById("signup-link");
+  var signoutLink = document.getElementById("signout-link");
+
+  userDropdown.addEventListener("mouseover", function () {
+      dropdownContent.style.display = "block";
+      if (localStorage.getItem("isLoggedIn") === "true") {
+          loginLink.style.display = "none";
+          signupLink.style.display = "none";
+          userHello.innerText = `Hello, ${isLoggedIn}`
+          signoutLink.style.display = "block";
+      } else {
+          loginLink.style.display = "block";
+          signupLink.style.display = "block";
+          signoutLink.style.display = "none";
+      }
+  });
+
+  userDropdown.addEventListener("mouseout", function () {
+      dropdownContent.style.display = "none";
+  });
+});
 
 </script>
 
