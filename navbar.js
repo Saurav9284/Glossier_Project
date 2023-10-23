@@ -17,17 +17,17 @@ function navbar() {
                     </div>
                     <div id="navbarChild_third">
                         <ul id="navbar_icons">
-                            <li><a href="#"><span class="material-symbols-outlined">search</span></a></li>
+                            <li><a href="product.html"><span class="material-symbols-outlined">search</span></a></li>
                             <li id="user-dropdown">
                                 <a href="#"><span class="material-symbols-outlined">person</span></a>
                                 <div id="user-dropdown-content" class="dropdown-content">
                                   <p  id="userHello"></p>
-                                  <a id="login-link" href="#">Login</a>
-                                  <a id="signup-link" href="#">Sign Up</a>
-                                  <a id="signout-link" href="#">Sign Out</a>
+                                  <a id="login-link" href="./Login/login.html">Login</a>
+                                  <a id="signup-link" href="./Signup/signup.html">Sign Up</a>
+                                  <a id="signout-link" href=".">Sign Out</a>
                                 </div>
                               </li>
-                            <li><a href="#"><span class="material-symbols-outlined">favorite</span></a></li>
+                            <li><a href="./fav.html"><span class="material-symbols-outlined">favorite</span></a></li>
                             <li id="cartOpen"><a href="#"><span class="material-symbols-outlined">shopping_bag</span></a></li>
                         </ul>
                         <img onclick="mobile()" class="mobile_menu" src="Images/bars-solid.svg">
