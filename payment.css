@@ -110,3 +110,8 @@ body {
 #rzp-button1{
     margin-top: 2%;
 }
+
+#footerDiv{
+  float: left;
+  width: 100%;
+}
