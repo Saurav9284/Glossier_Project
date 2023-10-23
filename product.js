@@ -18,6 +18,10 @@ let ProDetails = JSON.parse(localStorage.getItem("ProDetails"))||[];
 let ProWish = JSON.parse(localStorage.getItem("ProWISHLIST")) || [];
 
 
+let PageButton = document.getElementById("PAGEBTN");
+
+// PageButton.style.color="#ca4e46";
+
 // Sorting
 var selectElement = document.getElementById('sortBy');
 
@@ -26,10 +30,12 @@ selectElement.addEventListener('change', function() {
     var selectedOption = selectElement.options[selectElement.selectedIndex];
     
     if (selectedOption.value === 'LOWTOHIGH') {
+        Pagination.style.display="block";
         PaginationData(URLdata,`?_sort=price&_order=asc`,1,8)
         console.log('HI');
     }
     else if (selectedOption.value === 'HIGHTOLOW') {
+        Pagination.style.display="block";
         PaginationData(URLdata,`?_sort=price&_order=desc`,1,8)
         console.log('NO');
     }else{
@@ -45,17 +51,21 @@ selectCatogery.addEventListener('change',()=>{
 
     if(selected_Catogery.value ==="DRYSkin"){
         PaginationData(`${URLdata}`,`?_title=json-server&type=Dry`,1,12);
-        PageButton.style.display="none";
+        
+        Pagination.style.display="none";
+        
         console.log("Dry")
     }
     else if(selected_Catogery.value ==="OILYSkin"){
         PaginationData(`${URLdata}`,`?_title=json-server&type=Oil`,1,12);
-        PageButton.style.display="none";
+        
+        Pagination.style.display="none";
         console.log("Oil")
     }
     else if(selected_Catogery.value ==="NormalSKIN"){
-        // PageButton.style.display="none";
         PaginationData(`${URLdata}`,`?_title=json-server&type=Normal`,1,12);
+        
+        Pagination.style.display="none";
         console.log("Normal")
     }
     else{
@@ -69,31 +79,35 @@ selectCatogery.addEventListener('change',()=>{
 let btnAll=document.getElementById("btnAll");
 btnAll.addEventListener("click", ()=>{
     PaginationData(URLdata,"",1,12)
+    Pagination.style.display="block";
 console.log("1")
 })
 
 let btnFace=document.getElementById("btnFace");
 btnFace.addEventListener("click", ()=>{
     PaginationData(`${URLdata}`,`?_title=json-server&catogery=face`,null,12)
-
+    Pagination.style.display="none";
 console.log("2")
 })
 
 let btnEyes=document.getElementById("btnEyes");
 btnEyes.addEventListener("click", ()=>{
     PaginationData(`${URLdata}`,`?_title=json-server&catogery=Eyes`,null,12)
+    Pagination.style.display="none";
 console.log("3")
 })
 
 let btnLips=document.getElementById("btnLips");
 btnLips.addEventListener("click", ()=>{
     PaginationData(`${URLdata}`,`?_title=json-server&catogery=lips`,null,12)
+    Pagination.style.display="none";
 console.log("4")
 })
 
 let btnTools=document.getElementById("btnTools");
 btnTools.addEventListener("click", ()=>{
     PaginationData(`${URLdata}`,`?_title=json-server&catogery=Tools`,null,12)
+    Pagination.style.display="none";
 console.log("5")
 })
 
@@ -315,12 +329,14 @@ async function PaginationData(url,queryParameter,page,limit){
       //   console.log(n)
         let pageNum = Math.ceil(n / limit);
         Pagination.innerHTML = "";
+
         if(pageNum>1){
         for (let i = 1; i <= pageNum; i++) {
           let btn = document.createElement("button");
           btn.innerText = i;
 
           btn.classList.add("PageButton");
+        //   btn.setAttribute("id","PAGEBTN")
 
           btn.addEventListener("click", () => {
             if (queryParameter==="") {
