@@ -5,7 +5,21 @@ let productContainer = document.getElementById("product-list-wrapper")
 let totalCartProducts = document.getElementById("totalItem")
 let totalPriceHTMl = document.getElementById("totalPrice");
 let shippingChargMsg = document.getElementById("shippingCharges");
+let backdrop = document.querySelector(".backdrop")
+let cartOpenBtn = document.getElementById("cartOpen");
 
+closeCart.addEventListener("click", () => {
+    cartContainer.classList.remove("openCart")
+    // cartContainer.style.display = "none"
+    backdrop.removeAttribute("id", "show")
+})
+
+cartOpenBtn.addEventListener("click", () => {
+    
+    cartContainer.classList.add("openCart")
+    // cartContainer.style.display = "inline-block"
+    backdrop.setAttribute("id", "show")
+})
 
 let totalPrice;
 let shippingCharges;
@@ -21,7 +35,7 @@ if (cartArr) {
     })
 }
 
-console.log(cartArr)
+console.log(cartProductArr)
 
 function emptyCart() {
     if (cartProductArr.length === 0) {
@@ -38,7 +52,8 @@ function emptyCart() {
 }
 
 function getData() {
-    let data = cartProductArr;
+    let data =cartProductArr;
+    
 
 
     if (cartProductArr.length > 0) {
@@ -51,7 +66,7 @@ function getData() {
 
 
 
-getData();
+getData()
 function displayData(data) {
     productContainer.innerHTML = "";
     data.forEach((element, index) => {
@@ -66,13 +81,18 @@ function displayData(data) {
         crossIcon.append(p);
 
         crossIcon.addEventListener("click", () => {
-            cartProductArr.splice(index, 1);
+            cartProductArr.splice(index,1);
+            cartArr.splice(index,1);
 
+            console.log(cartProductArr);
             totalPriceFunction();
             shipping();
             totalNoOfProducts();
             emptyCart();
+            
             localStorage.setItem("cartProductArr", JSON.stringify(cartProductArr));
+            localStorage.setItem("ProductId", JSON.stringify(cartArr));
+
             displayData(cartProductArr);
         })
         let cardContent = document.createElement("div")
@@ -107,14 +127,20 @@ function displayData(data) {
                 element.quantity--;
                 element.totalPrice = element.totalPrice - element.price;
                 cartProductArr[index].quantity = Number(element.quantity);
+                cartArr[index].quantity = Number(element.quantity);
                 localStorage.setItem("cartProductArr", JSON.stringify(cartProductArr));
+                localStorage.setItem("ProductId", JSON.stringify(cartArr));
+
                 totalPriceFunction();
                 displayData(cartProductArr);
                 shipping();
             }
             else {
                 cartProductArr.splice(index, 1);
+                cartArr.splice(index, 1);
                 localStorage.setItem("cartProductArr", JSON.stringify(cartProductArr));
+                localStorage.setItem("ProductId", JSON.stringify(cartArr));
+
                 totalNoOfProducts();
                 emptyCart();
                 displayData(cartProductArr);
@@ -137,7 +163,10 @@ function displayData(data) {
             element.totalPrice += element.price;
 
             cartProductArr[index].quantity = Number(element.quantity);
+            cartArr[index].quantity = Number(element.quantity);
             localStorage.setItem("cartProductArr", JSON.stringify(cartProductArr));
+            localStorage.setItem("ProductId", JSON.stringify(cartArr));
+
             shipping();
             displayData(cartProductArr);
             totalPriceFunction();
@@ -205,6 +234,10 @@ checkoutBtn.addEventListener("click", () => {
     window.location.href = "payment.html"
 })
 
+
+
+
 totalNoOfProducts();
 shipping();
 totalPriceFunction();
+localStorage.setItem("cartProductArr", JSON.stringify(cartProductArr));

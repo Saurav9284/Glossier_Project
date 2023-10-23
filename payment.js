@@ -5,8 +5,11 @@ arr.push(INFORMATION);
 console.log(arr);
 var totalPrice = 0;
 INFORMATION.forEach(function(product) {
-    totalPrice += (+product.price);
-  });
+  totalPrice += (+product.price);
+});
+
+
+
 
 console.log(totalPrice);
 let totalPrice1 = Math.floor(totalPrice);

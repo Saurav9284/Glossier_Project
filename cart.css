@@ -1,21 +1,20 @@
 #cartContainer {
     position: fixed;
-    overflow-x: scroll;
-
+    overflow-y: scroll;
+    overflow-x: hidden;
     right: 0;
     top: 0;
     height: 100vh;
-    width: 100%;
+    width: 500px;
     background-color: #ffffff;
     transform: translateX(130%);
     transition: 0.5s ease;
     z-index: 100;
     opacity: 10;
-    
     font-family: "Spartan", sans-serif;
     letter-spacing: 0.3px;
     z-index: 1000;
-    margin-right: 128%;
+
 }
 
 #cartContainer::-webkit-scrollbar {
@@ -70,9 +69,8 @@
 .card {
     display: flex;
     align-items: center;
-    width: 70%;
+    width: 110%;
     gap: 9px;
-    margin-left: 12%;
 
 }
 
@@ -99,7 +97,7 @@
     display: flex;
     flex-direction: column;
     justify-content: space-between;
-    padding: 18px 18px 18px 0px;
+    padding: 18px 58px 18px 0px;
 }
 
 .cardImg img {
@@ -126,12 +124,15 @@
 #checkout {
     width: 433px;
     border-top: 1px solid rgb(88, 78, 78) !important;
+    
+    position: sticky;
     bottom: 0px;
+    margin: 0;
     padding: 30px;
     right: 0;
     z-index: 150000000;
     background-color: white;
-    margin-left: 33%;
+
 }
 
 #checkout>div {
@@ -144,71 +145,129 @@
 #checkout>div>p {
     text-align: center;
     padding: 15px;
+
+}
+
+@media screen and (max-width : 1040px) {
+
+    #cartContainer,
+    #cart-header,
+    #checkout {
+        width: 100vw;
+    }
+
 }
 
 
-#extra-products {
+
+
+
+
+#header_navbar{
+    border-bottom: 1px solid white;
+    background-color: rgba(128, 128, 128, 0.40);
+}
+#navbar{
     display: flex;
-    gap: 20px;
-    overflow-x: auto;
-    /* width: inherit; */
-    margin: 0px 60px;
+    width: 100%;
+    padding: 15px 0px;
+    align-items: center;
 }
-
-.extra-card {
-    padding: 2px;
-    box-shadow: rgba(165, 60, 60, 0.497) 2px 2px 2px 1px;
-    display: flex;
-    flex-direction: column;
-    gap: 8px;
+#navbarChild_First{
+    width: 30%;
+    text-align: left;
 }
-
-.extra-card img {
-    width: 160px;
+#navbar_Logo{
+    font-size: 30px;
+    color: var(--white-text);
+    font-weight: 600;
+    font-style: italic;
+    display: inline;
 }
-
-.extra-card button {
-    width: 80%;
-    display: flex;
-    justify-content: space-around;
-    margin: auto;
-    border: 1px solid black;
-    border-radius: 5px;
-    padding: 5px 0px;
-    background-color:#ca4e46;
+.hoveredOnLogo{
+    color: var(--hover-text) !important;
+    font-size: 30px !important;
+    font-weight: 400;
 }
-
-.extra-card p {
+#navbarChild_second{
+    width: 40%;
     text-align: center;
 }
-
-#emptyCartMsg {
-    height: 530px;
-    /* background-color: rgba(162, 177, 180, 0.608); */
-    padding: 20px;
-    font-size: 20px;
-    letter-spacing: 1px;
-    background-image: url("https://img.icons8.com/ios/50/000000/happy--v1.png");
-    background-position: center;
-    background-size: 150px 150px;
-    background-repeat: no-repeat;
-    background-color: #f7f7f7;
+#navbar_menu{
+    list-style-type: none;
 }
-
-
-.backdrop{
-    position: fixed;
-    top: 0;
-    right: 0;
-    left: 0;
-    bottom: 0;
-    z-index: 120;
-    background-color: rgba(0, 0, 0, 0.6);
-    display: none;
-    opacity: 0;
+#navbar_menu li{
+    display: inline;
 }
+#navbar_menu a{
+    text-transform: none;
+    text-decoration: none;
+    color: var(--white-text);
+    padding: 15px 12px;
+    font-size: 16px;
+}
+#navbar_menu a:hover{
+    color: var(--hover-text);
+}
+#navbarChild_third{
+    width: 30%;
+    text-align: right;
+}
+#navbar_icons{
+    list-style-type: none;
+}
+#navbar_icons li{
+    display: inline;
+}
+#navbar_icons a{
+    text-decoration: none;
+    color: var(--white-text);
+}
+#navbar_icons span{
+    font-size: 22px !important;
+    padding: 0px 6px ;
+    font-weight: 300;
 
-#show{
-    display: block;
-    opacity: 1;
+
+}
+#navbar_icons span:hover{
+    color: var(--hover-text);
+}
+#header_details{
+    width: 100%;
+    padding: 70px 0px;
+}
+#header_section{
+    width: 30%;
+}
+#header_section >h3{
+    font-size: 30px;
+    width: 80%;
+}
+#header_section> p{
+    font-size: 14px;
+    padding: 15px 0px;
+    font-weight: 400;
+    width: 80%;
+}
+#header_product{
+    width: 40%;
+}
+#header_product> img{
+    width: 100%;
+    border-radius: 5px;
+    margin: 10px 0px;
+}
+#header_product> a{
+    text-transform: none;
+    color: var(--white-text);
+    text-decoration: none;
+    font-size: 14px;
+    border-radius: 8px;
+    padding: 6px 14px;
+    background-color: var(--black-text);
+}
+#header_product> a:hover{
+    color: var(--black-text);
+    background-color: var(--main-bg);
 }

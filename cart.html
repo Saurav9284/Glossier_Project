@@ -8,9 +8,38 @@
     <title>Document</title>
 </head>
 <body>
+    <header>
+        <div id="header_navbar">
+            <div class="main_container">
+                <div id="navbar">
+                    <div id="navbarChild_First">
+                        <h3 id="navbar_Logo">Glossier.</h3>
+                    </div>
+                    <div id="navbarChild_second">
+                        <ul id="navbar_menu">
+                            <li><a href="#">Skincare</a></li>
+                            <li><a href="#">Makeup</a></li>
+                            <li><a href="#">Sets</a></li>
+                            <li><a href="#">All</a></li>
+                        </ul>
+                    </div>
+                    <div id="navbarChild_third">
+                        <ul id="navbar_icons">
+                            <li><a href="#"><span class="material-symbols-outlined">search</span></a></li>
+                            <li><a href="#"><span class="material-symbols-outlined">person </span></a></li>
+                            <li><a href="#"><span class="material-symbols-outlined">favorite</span></a></li>
+                            <li id="cartOpen"><a href="#"><span class="material-symbols-outlined">shopping_bag</span></a></li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+    </header>
+
     <div id="cartContainer">
         <div id="cart-header">
-            <h3>Your bag <span id="totalItem">(5 items)</span></h3>
+            <h3>Your bag <span id="totalItem">(0 items)</span></h3>
             <p class="crossIcon" id="closeCart">&times; &nbsp; &nbsp; </p>
     
         </div>
@@ -30,11 +59,11 @@
         <!--  -->
         <div id="checkout">
             <div class="pointer">
-                <p>Rs.<span id="totalPrice">93</span> &#8722; Checkout </p>
+                <p>Rs.<span id="totalPrice">0</span> &#8722; Checkout </p>
             </div>
         </div>
     </div>
-    
+    <div class="backdrop" id="show"></div>
 </body>    
 </html>
 <script src="cart.js"></script>
