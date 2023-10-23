@@ -7,6 +7,11 @@ let URLdata = "https://cwproject-unit5.onrender.com/products";
 // let URLdata = "./data.JSON";
 
 
+
+import { footer } from "../Components/footer.js"
+
+document.querySelector("#footer").innerHTML = footer();
+
 let mainSection = document.getElementById("MainDataDiv");
 let popUPaddedBag = document.getElementById("popUP-addedBag");
 let popUPaddedBagh2 = document.getElementById("popUP-addedBagH2");
@@ -163,7 +168,7 @@ function DisplayData(item){
             let ProDetDATA = JSON.stringify(objProD) 
             // console.log(ProDetDATA);
             localStorage.setItem("detail",ProDetDATA);
-            
+
             // localStorage.setItem("detail", objProD);
             window.location.href="./productDetail.html";
 
@@ -242,11 +247,12 @@ function DisplayData(item){
         cartbtn.classList.add("cartbtn");
         cartbtn.innerHTML = "Add to bag";
         cartbtn.addEventListener("click",()=>{
+            
+            
             cartbtn.innerHTML="Added";
             cartbtn.style.color="white";
-
             
-           
+            
             let obj={
                 id:ele.id,
                 price:ele.price,
@@ -260,6 +266,7 @@ function DisplayData(item){
             var localData = JSON.stringify(productID)
             localStorage.setItem("ProductId",localData);
 
+            // window.location.reload();
             
             // setTimeout(() => {
             //     // window.location.href="./cart.html";
