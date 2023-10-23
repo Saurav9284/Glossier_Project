@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="cart.css">
+
+    <title>Document</title>
+</head>
+<body>
+    <div id="cartContainer">
+        <div id="cart-header">
+            <h3>Your bag <span id="totalItem">(0 items)</span></h3>
+            <p class="crossIcon" id="closeCart">&times; &nbsp; &nbsp; </p>
+    
+        </div>
+        <section style="width: 100%;" id="product-section">
+    
+    
+            <div
+                style=" width: 88%; margin: auto; padding: 7px 0px 15px 0; margin-bottom: 15px; border-bottom: 6px solid rgba(95, 88, 88, 0.46);">
+                <p style="text-align: center;" id="shippingCharges">Congrats! You get free standard shipping.</p>
+    
+            </div>
+    
+            <div style="width: 100%;" id="product-list-wrapper">
+    
+            </div>
+        </section>
+        <!--  -->
+        <div id="checkout">
+            <div class="pointer">
+                <p>Rs.<span id="totalPrice">0</span> &#8722; Checkout </p>
+            </div>
+        </div>
+    </div>
+    <div class="backdrop" id="show"></div>
+</body>    
+</html>
+<script src="cart.js"></script>

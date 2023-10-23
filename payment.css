@@ -1,0 +1,112 @@
+@import url("https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&family=Nunito+Sans:ital,opsz,wght@0,6..12,200;0,6..12,300;0,6..12,400;0,6..12,500;0,6..12,600;0,6..12,700;0,6..12,800;0,6..12,900;0,6..12,1000;1,6..12,200;1,6..12,300;1,6..12,400;1,6..12,500;1,6..12,600;1,6..12,700;1,6..12,800;1,6..12,900;1,6..12,1000&family=Nunito:ital,wght@0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;0,1000;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900;1,1000&family=Open+Sans:wght@400;700&family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap");
+
+* {
+  font-family: "Nunito";
+}
+body {
+  font-family: Arial, sans-serif;
+  background-color: rgb(255, 255, 255);
+  /* text-align: center; */
+  margin: 0;
+  background-image: url('https://www.jotform.com/blog/wp-content/uploads/2018/11/rawpixel-626044-unsplash-compressor.jpg');
+
+}
+
+.container {
+  width: 100%;
+  display: flex;
+}
+
+.payment-form {
+  background-color: #fff;
+  border-radius: 10px;
+  /* box-shadow: 0px 5px 10px rgba(0, 0, 0, 0.1); */
+  padding: 30px;
+  width: 70%;
+  gap: 2rem;
+  margin-left: 500px;
+  margin-top: 4%;
+  margin-right: 490px;
+}
+.payment-form > h2 {
+  color: black;
+  font-size: 40px;
+  font-weight: 800;
+  
+  
+}
+
+.form-title {
+  font-size: 44px;
+  margin-bottom: 20px;
+  color: #007bff;
+  text-align: center;
+}
+
+.input-group {
+  margin-bottom: 20px;
+  width: 80%;
+  margin: auto;
+}
+.input-group > input {
+  width: 60%;
+  border: none;
+  border-bottom: 1px solid grey;
+  outline: none;
+  background-color: transparent;
+  font-size: 16px;
+  padding: 5px 0;
+}
+.label {
+  display: block;
+  font-weight: bold;
+}
+
+.input-field {
+  width: 100%;
+  padding: 10px;
+  border: 1px solid #dad5d5;
+  border-style: line;
+  /* border-radius: 55px; */
+  font-size: 16px;
+  margin-top: 10px;
+}
+
+.currency-symbol {
+  font-size: 16px;
+  padding: 10px;
+  border: 1px solid #ccc;
+  border-radius: 5px 0 0 5px;
+  background-color: #f7f7f7;
+}
+
+.btn-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  /* margin-top: 20px; */
+}
+
+.btn {
+  padding: 10px 20px;
+  background-color: #007bff;
+  color: #fff;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  font-size: 16px;
+  transition: background-color 0.3s ease;
+}
+
+.btn:hover {
+  background-color: #45b300;
+}
+
+#card-image{
+    height: 50vh;
+    
+  }
+
+#rzp-button1{
+    margin-top: 2%;
+}

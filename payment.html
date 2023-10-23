@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="payment.css">
+
+    <title>Document</title>
+</head>
+<body>
+
+    <div class="container">
+ 
+        <div class="payment-form">
+          <h2 class="form-title">Address</h2>
+          <form id="payment-form">
+            <div class="input-group">
+         
+              <input type="text" id="name" class="input-field" placeholder="Enter your Name" required>
+            </div>
+            <div class="input-group">
+          
+              <input type="text" id="add1" class="input-field" placeholder="Street" required> <br> <br>
+      
+              <div class="input-1"> 
+                <input type="text" id="street" placeholder="Hometown">
+                <input type="text" id="city" placeholder="City"></div>
+            </div>
+            <div class="input-group">
+              
+              <br>
+              <input type="text" id="state" class="input-field" placeholder="State" required>
+            </div>
+            <div class="input-group">
+              <br>
+              <select name="" id="select">
+                <option value="">select</option>
+                <option value="aadhar">Aadhar</option>
+                <option value="driving">Driving License</option>
+              </select>
+              <br>
+              <input type="text" id="name" class="input-field" placeholder="" required>
+            </div>
+            <div class="input-group">
+              <!-- <label for="amount">Total Amount</label><br> -->
+              <h2  id ='totalPrice'>Rs 1000</h2>
+            </div>
+            <div class="btn-container">
+              <!-- <button class="btn" type="submit">Pay Now</button> -->
+              <button id="rzp-button1" class="btn btn-outline-dark btn-lg"><i class="fas fa-money-bill"></i>Pay Now</button>
+
+            </div>
+          </form>
+       </div>
+
+</body>
+</html>
+<script src="https://checkout.razorpay.com/v1/checkout.js"></script>
+<script src="payment.js"></script>
