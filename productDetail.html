@@ -19,8 +19,8 @@
     <link href="https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,200;0,300;0,400;0,500;0,600;1,500;1,600&display=swap" rel="stylesheet">
     <!-- For font awesome premium icons ends here -->
 
-    <link rel="stylesheet" href="./footer.css">
-    <link rel="stylesheet" href="./nav.css">
+    <link rel="stylesheet" type="text/css" href="./Components/footer.css">
+    <link rel="stylesheet" type="text/css" href="./Components/navbar.css">
     <link rel="stylesheet" href="./singlePro.css" />
     <link rel="stylesheet" href="./index.css">
 
@@ -98,6 +98,7 @@
     width: 250px;
     height: 250px;
   }
+ 
 /* #Main{
     background-color: #8d2e4f;
 }
@@ -113,7 +114,9 @@
 <body>
 
 <!-- navabar start -->
+<div id="navBar">
 
+</div>
 <!-- navbar close -->
 
     <div id="alert-container">
@@ -398,4 +401,59 @@
 
 </script>
 
-<script src="./index.js"></script>
+<script type="module">
+    import { navbar } from "./navbar.js";
+    const navbarele = document.getElementById('navBar');
+    if (navbarele) {
+        navbarele.innerHTML = navbar();
+    }
+</script>
+<script src="https://kit.fontawesome.com/19da679b91.js" crossorigin="anonymous"></script>
+
+
+<script>
+//     let logoText = document.getElementById("navbar_Logo")
+// logoText.addEventListener("mouseover", () => {
+//     logoText.classList.add("hoveredOnLogo");
+//     logoText.innerText = "You Look Good";
+// });
+// logoText.addEventListener("mouseleave", () => {
+//     logoText.innerText = "Glossier.";
+//     logoText.classList.remove("hoveredOnLogo");
+// })
+function mobile() {
+    var x = document.querySelector(".navbarChild_second")
+    if (x.classList.contains("mobilemenu")) {
+        x.classList.remove("mobilemenu"); // Remove the class "mobilemenu"
+    } else {
+        x.classList.add("mobilemenu"); // Add the class "mobilemenu"
+    }
+}
+let isLoggedIn = localStorage.getItem("userName");
+let userHello = document.getElementById("userHello")
+document.addEventListener("DOMContentLoaded", function () {
+    var userDropdown = document.getElementById("user-dropdown");
+    var dropdownContent = document.getElementById("user-dropdown-content");
+    var loginLink = document.getElementById("login-link");
+    var signupLink = document.getElementById("signup-link");
+    var signoutLink = document.getElementById("signout-link");
+
+    userDropdown.addEventListener("mouseover", function () {
+        dropdownContent.style.display = "block";
+        if (localStorage.getItem("isLoggedIn") === "true") {
+            loginLink.style.display = "none";
+            signupLink.style.display = "none";
+            userHello.innerText = `Hello, ${isLoggedIn}`
+            signoutLink.style.display = "block";
+        } else {
+            loginLink.style.display = "block";
+            signupLink.style.display = "block";
+            signoutLink.style.display = "none";
+        }
+    });
+
+    userDropdown.addEventListener("mouseout", function () {
+        dropdownContent.style.display = "none";
+    });
+});
+</script>
