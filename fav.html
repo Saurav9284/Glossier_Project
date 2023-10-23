@@ -137,37 +137,71 @@ button{
 let fav=  localStorage.getItem("fav");
 fav=JSON.parse(fav) ||[];
 
-if (fav.length === 0) {
-  // If it's empty, show the background element
+if (fav.length === 0 ) {
   backGround.style.display = 'block';
-}else{
-    fav.forEach((item) => {
-    // Create a new card element
-    const card = document.createElement('div');
-    card.className = 'item';
+}
+else{
+  function  display(fav){
+    container.innerHTML="";
+  fav.forEach((element,index) => {
+    let cardi = document.createElement("div");
+    cardi.classList.add("item");
 
-    // Create the card's content (you can customize this part)
-    const cardContent = `
-      <div class="imgDiv">
-        <img src="${item.img}" alt="">
-      </div>
-      <hr>
-      <div class="body">
-        <h3> ${item.name} </h3>
-        <h2> <span>&#8377;</span><span id="price">${item.price}</span></h2>
-        <div id="button">
-          <button id="details"> View Details </button>
-          <button id="remove" > Remove </button>
-        </div>
-      </div>
-    `;
+    let imgDiv = document.createElement("div");
+    imgDiv.classList.add("imgDiv");
 
-    card.innerHTML = cardContent;
+    let img = document.createElement("img");
+    img.src = element.img;
+    img.addEventListener("mouseover", () => {
+      img.src = element.img2;
+    });
+    img.addEventListener("mouseleave", () => {
+      img.src = element.img;
+    });
 
-    // Append the card to the container
-    container.appendChild(card);
+    imgDiv.append(img);//
+
+    let hr=document.createElement("hr");//
+
+    let body=document.createElement("div");//
+    body.setAttribute("class","body");
+    let h3=document.createElement("h3");
+    h3.textContent=`${element.name}`;
+    let h2=document.createElement("h2");
+    h2.innerHTML=`<span> &#8377; <span> ${element.price}`;
+    let buttonDiv= document.createElement("div");
+
+      let detailB=document.createElement("button");
+      let removeB=document.createElement("button");
+      detailB.setAttribute("id","details");
+      removeB.setAttribute("id","remove");
+     detailB.textContent="View Details";
+     removeB.textContent="Remove";
+
+     detailB.addEventListener('click', () => {
+    localStorage.setItem('detail', JSON.stringify(element));
+    window.location.replace('./productDetail.html');
   });
-} 
+
+  removeB.addEventListener('click', () => {
+    fav.splice(index, 1);
+    localStorage.setItem('fav', JSON.stringify(fav));
+    display(fav);
+
+  })
+
+
+
+buttonDiv.append(detailB,removeB);
+body.append(h3,h2,buttonDiv);
+cardi.append(imgDiv,hr,body);
+    container.append(cardi);
+  });
+}
+display(fav);
+
+}
+
 
 
 </script>
