@@ -8,9 +8,9 @@ let URLdata = "https://cwproject-unit5.onrender.com/products";
 
 
 
-import { footer } from "../Components/footer.js"
+// import { footer } from "./Components/footer"
 
-document.querySelector("#footer").innerHTML = footer();
+// document.querySelector("#footer").innerHTML = footer();
 
 let mainSection = document.getElementById("MainDataDiv");
 let popUPaddedBag = document.getElementById("popUP-addedBag");

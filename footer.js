@@ -2,6 +2,7 @@ function footer(){
     return `
     <div id="footerSection">
         <div class="main_container">
+
             <div id="footer_section1">
                 <div>
                     <h4 class="footerTitles">Company</h4>
@@ -53,5 +54,5 @@ function footer(){
         </div>
     </div>`
 }
-<script src="https://kit.fontawesome.com/19da679b91.js" crossorigin="anonymous"></script>
+
 export {footer} ;
