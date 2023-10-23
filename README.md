@@ -2,6 +2,8 @@
 
 **Deployed Link**
 
+https://delightful-phoenix-888d86.netlify.app/
+
 
 
 *Glossier clone.*
