@@ -14,8 +14,8 @@ let Pagination = document.getElementById("pagination_Wrapper");
 
 // localStorage For Id:-
 let productID = JSON.parse(localStorage.getItem("ProductId"))||[];
-let ProDetails = JSON.parse(localStorage.getItem("ProDetails"))||[];
-let ProWish = JSON.parse(localStorage.getItem("ProWISHLIST")) || [];
+let ProDetails = localStorage.getItem("detail");
+let ProWish = JSON.parse(localStorage.getItem("fav")) || [];
 
 
 let PageButton = document.getElementById("PAGEBTN");
@@ -69,6 +69,7 @@ selectCatogery.addEventListener('change',()=>{
         console.log("Normal")
     }
     else{
+        Pagination.style.display="block";
         PaginationData(URLdata,"",1,8);
     }
 })
@@ -157,10 +158,14 @@ function DisplayData(item){
                 catogery:ele.catogery,
                 details:ele.details
             }
-            ProDetails.push(objProD);
-            let ProDetDATA = JSON.stringify(ProDetails) 
-            localStorage.setItem("ProDetails",ProDetDATA);
-            window.location.href="./cart"
+
+            // ProDetails.push(objProD);
+            let ProDetDATA = JSON.stringify(objProD) 
+            // console.log(ProDetDATA);
+            localStorage.setItem("detail",ProDetDATA);
+            
+            // localStorage.setItem("detail", objProD);
+            window.location.href="./productDetail.html";
 
 
         });
@@ -284,7 +289,7 @@ function DisplayData(item){
             
             ProWish.push(obj);
             let localData = JSON.stringify(ProWish);
-            localStorage.setItem("ProWISHLIST",localData);
+            localStorage.setItem("fav",localData);
 
         })
 
@@ -319,7 +324,7 @@ async function PaginationData(url,queryParameter,page,limit){
     
  try {
          let res = await fetch(url);
-         // console.log(res.headers.get("X-Total-Count"));
+         
          
          let data = await res.json();
          // console.log(data);
