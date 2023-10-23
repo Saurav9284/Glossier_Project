@@ -42,7 +42,7 @@ document.addEventListener("DOMContentLoaded", function () {
         dropdownContent.style.display = "none";
     });
 });
-function footer() {
+function navbar() {
     return `
     <div id="header_navbar">
             <div class="main_container">
@@ -79,5 +79,4 @@ function footer() {
             </div>
         </div>`
 }
-
-export { footer };
+export { navbar };
