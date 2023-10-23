@@ -66,13 +66,13 @@
     gap: 15px;
 }
 
-.card {
+/* .card {
     display: flex;
     align-items: center;
     width: 110%;
     gap: 9px;
 
-}
+} */
 
 .card-content {
     display: flex;
@@ -80,11 +80,11 @@
     box-shadow: 10px 10px 10px rgba(0, 0, 0, 0.15);
 }
 
-.cardBody {
+/* .cardBody {
     display: flex;
     justify-content: space-between;
     width: 100%;
-}
+} */
 
 .cardBodyLeft {
     display: flex;
@@ -100,11 +100,11 @@
     padding: 18px 58px 18px 0px;
 }
 
-.cardImg img {
+/* .cardImg img {
     width: 140px;
     height: 140px;
     margin: auto;
-}
+} */
 
 
 #product-list-wrapper .cart-btn {
