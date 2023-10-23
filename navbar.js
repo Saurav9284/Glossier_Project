@@ -24,7 +24,7 @@ function navbar() {
                                   <p  id="userHello"></p>
                                   <a id="login-link" href="./Login/login.html">Login</a>
                                   <a id="signup-link" href="./Signup/signup.html">Sign Up</a>
-                                  <a id="signout-link" href="#">Sign Out</a>
+                                  <a id="signout-link" href=".">Sign Out</a>
                                 </div>
                               </li>
                             <li><a href="./fav.html"><span class="material-symbols-outlined">favorite</span></a></li>
