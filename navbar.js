@@ -5,8 +5,8 @@ function navbar() {
             <div class="main_container">
                 <div id="navbar">
                     <div id="navbarChild_First">
-                        
-                        <h3 id="navbar_Logo">Glossier.</h3>
+                        <a href="index.html"><h3 id="navbar_Logo">Glossier.</h3></a>
+
                     </div>
                     <div class="navbarChild_second">
                         <ul id="navbar_menu">
