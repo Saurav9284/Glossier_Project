@@ -5,6 +5,7 @@ function navbar() {
             <div class="main_container">
                 <div id="navbar">
                     <div id="navbarChild_First">
+                        
                         <h3 id="navbar_Logo">Glossier.</h3>
                     </div>
                     <div class="navbarChild_second">
