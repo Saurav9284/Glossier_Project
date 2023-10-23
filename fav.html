@@ -1,0 +1,173 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>WishList</title>
+<link rel="stylesheet" href="./footer.css">
+
+<style>
+
+.empty{
+    background-image: url('https://cdn.dribbble.com/users/2063647/screenshots/10500595/circle3.png?resize=400x300&vertical=center');
+    background-repeat: no-repeat;
+    background-size: cover;
+}
+.container{
+    margin-top: 30px;
+    margin-bottom: 30px;
+    padding: 20px;
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+
+}
+.item{
+    box-shadow: rgba(50, 50, 93, 0.25) 0px 50px 100px -20px, rgba(0, 0, 0, 0.3) 0px 30px 60px -30px, rgba(10, 37, 64, 0.35) 0px -2px 6px 0px inset;
+    border-radius: 7px;
+    width: 350px;
+    padding-bottom: 20px;
+    text-align: center;
+}
+
+.imgDiv{
+width: 330px;
+padding: 0px 10px;
+}
+.imgDiv img{
+    padding-top: 5px;
+    width: 100%;
+    height: 350px;
+    border-radius: 10px;
+    box-shadow: rgba(0, 0, 0, 0.06) 0px 2px 4px 0px inset;
+}
+
+.body{
+    height: 100px;
+}
+.body *{ 
+    margin: 5px;
+}
+#backGround{
+    margin: auto;
+  width:800px;
+  display: none;
+}
+#backGround img{
+    width: 100%;
+}
+#button{
+    width: 90%;
+    margin: auto;
+    display: flex;
+    justify-content: space-around;
+    /* background-color: bisque; */
+}
+
+#remove{
+    background-color: rgb(167, 5, 5);
+}
+#details{
+    background-color: grey
+}
+button{
+   padding: 10px;
+   border-radius: 5px;
+   color: white;
+   font-weight: bolder;
+}
+
+
+</style>
+</head>
+<body>
+
+
+      <!-- nav bar -->
+    <div> </div>
+
+
+   <a href="index.html"><div id="backGround"  >
+   <img src="https://cdn.dribbble.com/users/1010436/screenshots/13921028/media/db88222379f05eef390ef0dd59053164.jpg?resize=1200x900&vertical=center" alt=" ">
+   </div>
+   </a>
+
+
+    <div class="container">
+
+<!--     
+ <div class="item">
+        <div class="imgDiv">
+        <img src='http://127.0.0.1:5500/Images/Balm-dotcom/Hover.avif' alt="">
+        </div>
+        <hr>
+
+    <div class="body">
+        <h3> name :abhi kya hi bolu </h3> 
+        <h2> <span>&#8377;</span><span id="price">500</span></h2>
+
+        <div id="button">
+            <button id="details"> View Details </button>
+            <button id="remove"> Remove </button>
+        </div>
+         </div>
+      </div>  -->
+
+
+
+</div>
+
+
+<div id="footer"></div>
+</body>
+
+
+</html>
+
+    <script type="module">
+    import { footer } from './footer.js'; // Update the path to the footer.js file
+    const footerElement = document.getElementById('footer');
+    footerElement.innerHTML = footer();
+
+
+
+</script>
+<script>
+    const container = document.querySelector('.container');
+   let  backGround = document.getElementById("backGround")
+let fav=  localStorage.getItem("fav");
+fav=JSON.parse(fav) ||[];
+
+if (fav.length === 0) {
+  // If it's empty, show the background element
+  backGround.style.display = 'block';
+}else{
+    fav.forEach((item) => {
+    // Create a new card element
+    const card = document.createElement('div');
+    card.className = 'item';
+
+    // Create the card's content (you can customize this part)
+    const cardContent = `
+      <div class="imgDiv">
+        <img src="${item.img}" alt="">
+      </div>
+      <hr>
+      <div class="body">
+        <h3> ${item.name} </h3>
+        <h2> <span>&#8377;</span><span id="price">${item.price}</span></h2>
+        <div id="button">
+          <button id="details"> View Details </button>
+          <button id="remove" > Remove </button>
+        </div>
+      </div>
+    `;
+
+    card.innerHTML = cardContent;
+
+    // Append the card to the container
+    container.appendChild(card);
+  });
+} 
+
+
+</script>

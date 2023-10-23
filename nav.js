@@ -32,11 +32,11 @@ closeNav.addEventListener("click", () => {
     backdrop.removeAttribute("id", "show")
 })
 
-closeCart.addEventListener("click", () => {
-    cartContainer.classList.remove("openCart")
-    // cartContainer.style.display = "none"
-    backdrop.removeAttribute("id", "show")
-})
+// closeCart.addEventListener("click", () => {
+//     cartContainer.classList.remove("openCart")
+//     // cartContainer.style.display = "none"
+//     backdrop.removeAttribute("id", "show")
+// })
 
 cartOpenBtn.addEventListener("click", () => {
     

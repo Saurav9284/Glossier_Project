@@ -8,9 +8,6 @@ body {
   margin: auto;
   background-color: #faf9f6;
 }
-
-
-
 #alert-container {
   display: none;
   position: fixed;
@@ -23,7 +20,7 @@ body {
   transform: 5s;
 }
 
-#alert {
+#alert{
   background-color: #fff;
   width: 300px;
   position: absolute;
@@ -38,7 +35,6 @@ body {
 
 #alert p {
   margin-top: 0;
-  
   font-weight: 400;
 }
 
@@ -74,7 +70,7 @@ body {
   margin-bottom: 4%;
 }
 
-#Main-section>div {
+#Main-section> div {
   text-align: center;
   display: flex;
   justify-content: space-between;
@@ -157,13 +153,13 @@ body {
   border-radius: 7px;
   /* line-height: 40px; */
   border: 2px solid black;
+  background-color: black;
   padding: 0 6px;
   display: flex;
   align-items: center;
   justify-content: center;
   font-size: 17px;
-  color: black;
-  
+  color:white
 }
 #add_to_cart {
   padding: 8px 60px;
@@ -191,7 +187,7 @@ body {
   display: flex;
   width: 90%;
   margin: auto;
-  padding-top: 8%;
+  padding-top: 4%;
 }
 
 .heading>p {
@@ -311,6 +307,9 @@ body {
 }
 
 .Add-btn-details {
+  background-color: black;
+  color: white;
+  border-radius: 5px;
   width: 100%;
   padding: 3% 0;
   border-top: none;
@@ -323,12 +322,17 @@ body {
 }
 
 #main-conta {
+  margin-top: 0px;
+  margin-bottom: 40px;
   margin-left: 25%;
 }
 .small{
   display: none;
 }
-
+.Main-Img {
+  min-width: 400px;
+ max-width: 450px; 
+}
 /* ---------- */
 
 /* ------------580px-------------- */
@@ -337,7 +341,8 @@ body {
   .FSC{
     display: none;
   }
-  .small{display: flex;}
+  .small{display: flex;
+  }
   #Main-section>div {
     text-align: center;
     display: flex;
@@ -373,6 +378,9 @@ body {
     margin-top: 1%;
   }
 
+  .Add-btn-details{
+    background-color: black;
+  }
   #add_to_cart {
     padding: 4px 50px;
     color: white;
@@ -434,12 +442,14 @@ body {
   }
 
   #container {
-    gap: 8%;
+    gap: 4%;
     overflow-x: scroll;
     overflow-y: hidden;
   }
 
   #main-conta {
+    /* margin-bottom: 50px; */
+    margin-top: -30px;
     margin-left: 0;
   }
 
@@ -459,9 +469,7 @@ body {
   .pPrice-details {
     font-size: 10px;
   }
-}
-
-
 #footer {
   margin-top: 50px;
+}
 }

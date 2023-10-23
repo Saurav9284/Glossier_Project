@@ -6,7 +6,8 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <link rel="icon" href="https://i.ibb.co/1d9BGZK/download-1-removebg-preview.jpg">
     <!-- For font awesome premium icons -->
-    <link rel="stylesheet" data-purpose="Layout StyleSheet" title="Web Awesome" href="/css/app-wa-02670e9412103b5852dcbe140d278c49.css?vsn=d">
+    <link rel="stylesheet" data-purpose="Layout StyleSheet" title="Web Awesome"
+        href="/css/app-wa-02670e9412103b5852dcbe140d278c49.css?vsn=d">
     <link rel="stylesheet" href="https://site-assets.fontawesome.com/releases/v6.4.2/css/all.css">
     <link rel="stylesheet" href="https://site-assets.fontawesome.com/releases/v6.4.2/css/sharp-solid.css">
     <link rel="stylesheet" href="https://site-assets.fontawesome.com/releases/v6.4.2/css/sharp-regular.css">
@@ -21,7 +22,7 @@
     <style>
     * input{
     text-align: center;
-    font-size: 20px;
+    font-size: 16px;
     color: #8d2e4f;
     }
     .Main-Img{
@@ -49,8 +50,10 @@
   }
   form  input[type="text"]{
     width: 85%;
+    border-color: azure;
     border-bottom-left-radius: 5px;
     border-top-left-radius: 5px;
+    border-bottom-right-radius: 5px;
     height: 100%;
   }
   
@@ -58,8 +61,9 @@
     width: 15%;
     height: 110%;
     background-color:  #8d2e4f;
-    border-bottom-right-radius: 5px;
+    border-bottom-right-radius: 5px solid black;
     border-top-right-radius: 5px;
+
     filter: invert();
   }
   form{
@@ -72,10 +76,28 @@
   }
   #add{
     width: 65%;
-    /* border : 2px solid black; */
     display: flex;
     justify-content: space-between;
   }
+  #alert-msg{
+  background-color: rgb(119, 6, 25);
+  font-size: 20px;
+  color: white;
+  }
+  .sideImg{
+    background-color: red;
+  }
+  .img-product-details{
+    width: 250px;
+    height: 250px;
+  }
+/* #Main{
+    background-color: #8d2e4f;
+}
+#subImg{
+    display: flex;
+    flex-direction: row;
+} */
 </style>
 
 
@@ -83,152 +105,28 @@
 
 <body>
 
-<!-- 
-    <div id="cartContainer">
-        <div id="cart-header">
-            <h3>Your bag <span id="totalItem">(5 items)</span></h3>
-            <p class="crossIcon" id="closeCart">&times; &nbsp; &nbsp; </p>
-
-        </div>
-        <section style="width: 100%;" id="product-section">
-
-
-            <div
-                style=" width: 88%; margin: auto; padding: 7px 0px 15px 0; margin-bottom: 15px; border-bottom: 6px solid rgba(95, 88, 88, 0.46);">
-                <p style="text-align: center;" id="shippingCharges">Congrats! You get free standard shipping.</p>
-
-            </div>
-
-            <div style="width: 100%;" id="product-list-wrapper">
-
-            </div>
-            <p style="margin:15px 0 15px 22px; font-size: 20px;">Also</p>
-            <div id="extra-products">
-
-                <div class="extra-card">
-                    <img src="https://glossier-prod.imgix.net/products/glossier-after-baume-carousel-01_23fe78f1-1917-42e6-9448-b7f44e65acfc.png?auto=compress,format&cs=srgb&w=540"
-                        alt="">
-                    <p>Lip Balm for Women</p>
-                    <button>$15</button>
-                </div>
-                <div class="extra-card">
-                    <img src="https://glossier-prod.imgix.net/products/glossier-you-rollerball-carousel-01.png?auto=compress,format&cs=srgb&w=540"
-                        alt="">
-                    <p>Glossier Rollerball</p>
-                    <button>$23</button>
-                </div>
-                <div class="extra-card">
-                    <img src="https://glossier-prod.imgix.net/products/glossier-beautybag-carousel-01.png?auto=compress,format&cs=srgb&w=540"
-                        alt="">
-                    <p>The Beauty Bag </p>
-                    <button>$41</button>
-                </div>
-                <div class="extra-card">
-                    <img src="https://glossier-prod.imgix.net/files/glossier-boybrow-ingredients_6c9018b6-54b6-42c0-8863-c874f35bb88d.png?auto=compress,format&cs=srgb&w=360"
-                        alt="">
-                    <p>Hair Brush</p>
-                    <button>$10</button>
-                </div>
-                <div class="extra-card">
-                    <img src="https://glossier-prod.imgix.net/files/glossier-dropdown-nav-goods-884x1105.png?auto=compress,format&cs=srgb&w=360"
-                        alt="">
-                    <p>Water Bottle</p>
-                    <button>$20</button>
-                </div>
-                <div class="extra-card">
-                    <img src="https://glossier-prod.imgix.net/files/glossier-milkjelly-cleansingbar-ugc-01.png?auto=compress,format&cs=srgb&w=540"
-                        alt="">
-                    <p>Baby Soap</p>
-                    <button>$25</button>
-                </div>
-                <div class="extra-card">
-                    <img src="https://glossier-prod.imgix.net/products/glossier-cleanser-concentrate-carousel-01.png?auto=compress,format&cs=srgb&w=540"
-                        alt="">
-                    <p>Face Serum for Woman</p>
-                    <button>$35</button>
-                </div>
-
-
-            </div>
-
-        </section>
-         -->
-        <!-- <div id="checkout">
-            <div class="pointer">
-                <p>$<span id="totalPrice">93</span> &#8722; Checkout </p>
-            </div>
-        </div>
-    </div>
-    <div class="backdrop"></div>
-
-
-    <section id="navbar" class="section-p1">
-        <div class="logo-box">
-            <a href="index.html">
-                <h3>Glossier.</h3>
-            </a>
-        </div>
-
-        <div class="container-2">
-
-            <li><a href="#">
-                    Skincare
-                </a></li>
-            <li><a href="#">
-                    Makeup
-                </a></li>
-            <li><a href="#">
-                    Sets
-                </a></li>
-            <li><a href="#">
-                    All
-                </a></li> 
-
-
-        </div>
-        <div class="container-3">
-
-
-            <li><a href="#"><input type="search" class="search" placeholder="Searh here..."><i id="searchIcon"
-                        class="fa-regular fa-magnifying-glass"></i></a></li>
-            <li><a href="login.html" id="userName"><i class="fa-light fa-user loginIcon"></i></a></li>
-            <li><a href="#"><i class="fa-light fa-heart"></i></a></li>
-            <li id="cartOpen" >
-                <a href="#"><i id="cartIcon" class="fa-light fa-bag-shopping cartIcon"> <span
-                            id="cartTotal">0</span></i></a>
-
-            </li>
-
-
-
-        </div> -->
-
-        <div class="mobile-nav">
-            <span class="crossIcon" id="closeNav">&times; &nbsp; &nbsp;</span>
-            <span>Skincare</span>
-            <span>Face Care</span>
-            <span>Makeup</span>
-            <span>search</span>
-            <span>Cart</span>
-            <span>Login</span>
-            <span>SignUp</span>
-
-        </div>
-        <div class="mobileIcon"><i id="bar" class="fas fa-outdent"></i></div>
-
-    </section>
     <div id="alert-container">
         <div id="alert">
-            <p id="alert-msg">Product Added to Cart</p>
+            <p id="alert-msg">Product Added to Cart 🛍️</p>
             <!-- <button>OK</button> -->
         </div>
     </div>
 
 
 
+
     <div id="Main">
+
+       
+
         <section id="Main-section">
+        
             <div>
+                <!-- <div id="subImg">
+                    <img src="../Images/Milkey-jelly-cleanser/glossier-mjc-futuredew-carousel-01.avif"  />
+                    <img src="../Images/Milkey-jelly-cleanser/glossier-mjc-futuredew-carousel-01.avif" />
+                </div> -->
+
                 <div class="Main-Img">
                     <img id="dImg" src="../Images/Milkey-jelly-cleanser/glossier-mjc-futuredew-carousel-01.avif"  />
                 </div>
@@ -237,7 +135,7 @@
 
                     <h1 id="dName">Milky Jelly Cleanser</h1>
                     <h4 id="dPrice">$18</h4>
-                    <p>A nourishing and pH-balanced gel-cream cleanser that plays nicely
+                    <p  id="dDiscription">A nourishing and pH-balanced gel-cream cleanser that plays nicely
                         with all skin types.</p>
 
 
@@ -256,14 +154,15 @@
        <div class="delivery"> -->
          <form>
            <input type="text" placeholder="Enter your pin for Estimated delivery date" id="code">
-           <input type="image" src="https://cdn.vectorstock.com/i/1000x1000/30/86/check-delivery-logo-icon-design-vector-22483086.webp" alt="Submit" width="48" height="48" onclick="showdiliverTime()">
+           <!-- <input type="image" src="https://i.pinimg.com/564x/94/b7/8f/94b78f7bedbcb30ff9701f20c8917bb2.jpg" alt="Submit" width="70px" height="60" onclick="showdiliverTime()"> -->
+           <input type="image" src="https://t4.ftcdn.net/jpg/05/40/16/09/360_F_540160988_an4JUXkgZNc3xds7wnt8cjJkJmpDZEkq.jpg" alt="Submit" width="70px" height="60" onclick="showdiliverTime()">
          </form>
          <p  id="diliverTime"></p>
          
                     <div id="add">
                         <button><span id="decreaseBtn">&#8722; </span> <span id="totalNoOfProducts"> 1 </span> <span id="increaseBtn">  +</span></button>
                         <button id="cartButton" onclick="updateTotalProducts()">  Add &nbsp; to &nbsp;Cart </button>
-                        <i class="fa-regular fa-heart"></i>
+                        <i class="fa-regular fa-heart"  id="fa-heart"> </i>
                     </div>
 
                 </div>
@@ -271,7 +170,7 @@
         <hr />
         <section id="special-section">
             <div class="heading">
-                <p>WHY IT'S SPECIAL</p>
+                <p style="color: crimson; font-weight: bolder;">WHY IT'S SPECIAL </p>
             </div>
 
             <div id="special-des">
@@ -293,8 +192,8 @@
                     </p>
                 </div>
                 <div class="Special-Img">
-                    <img src="../Images/Milky-Jelly/hover.avif" alt="" />
-                    <img src="../Images/Milkey-jelly-cleanser/glossier-mjc-futuredew-carousel-01.avif" alt="" />
+                    <img src="https://media.istockphoto.com/id/1688229832/photo/smiling-woman-applying-foundation.jpg?s=612x612&w=0&k=20&c=qzqh--ih0gKrD0C9ajGKSUywYCYrv22mJPnlqU2aEVQ=" alt="" />
+                    <img src="https://m.media-amazon.com/images/I/71xVmoqXqOL._SX679_PIbundle-6,TopRight,0,0_SX679SY666SH20_.jpg" alt="" />
                 </div>
             </div>
         </section>
@@ -305,7 +204,7 @@
 
         <section id="Ingridient">
             <div class="heading">
-                <p>INGREDIENTS</p>
+                <p style="color: crimson; font-weight: bolder;">INGREDIENTS</p>
             </div>
 
             <div id="Ingridient-des">
@@ -349,7 +248,7 @@
         <!-------------------How to use-------------------------->
         <section id="special-section">
             <div class="heading">
-                <p>WHY IT'S SPECIAL</p>
+                <p style="color: crimson; font-weight: bolder;" >WHY IT'S SPECIAL</p>
             </div>
 
             <div id="special-des">
@@ -375,12 +274,12 @@
         </section>
         <hr />
         <!-- ------------------------Awards--------------------- -->
-        <section id="special-section">
+        <section id="special-section" style="color: crimson; font-weight: bolder;">
             <div class="heading">
-                <p>Award</p>
+                <p style="color: crimson; font-weight: bolder;">Award</p>
             </div>
 
-            <div id="Award">
+            <div id="Award" >
                 <div class="Special-Img glamour">
                     <img src="../Images/allure2.jpeg" alt="" />
                     <img src="../Images/glamour.png" alt="" />
@@ -389,10 +288,11 @@
         </section>
 
         <hr />
-        <section id="special-section">
+        <section id="special-section" >
             <div class="heading">
-                <p>More</p>
+                <p  style="color: crimson; font-weight: bolder;">More</p>
             </div>
+
             <div id="main-conta">
                 <div id="container"></div>
             </div>
@@ -407,8 +307,7 @@
     </div>
 
     <script src="./singlePro.js" type="module"></script>
-    <script src="./singlePro.js"></script>
-    <script src="./nav.js"></script>
+    <!-- <script src="./singlePro.js"></script> -->
 </body>
 
 
@@ -426,7 +325,7 @@
 </script>
 
 <script type="module">
-    import { footer } from './footer.js'; // Update the path to the footer.js file
+    import { footer } from './footer.js';
     const footerElement = document.getElementById('footer');
     footerElement.innerHTML = footer();
 </script>
@@ -434,3 +333,60 @@
 
 </html>
 
+<script>
+
+    function showdiliverTime(){
+    event.preventDefault();
+    var code=document.getElementById("code");
+    var p= document.getElementById("diliverTime");
+    console.log(code.value);
+    if(code.value.length<6   || code.value.length>6 ){
+    p.textContent="Please  Enter 6 digit valid pincode";
+     p.style.color="red";
+    }else{
+    p.textContent="Free delivery by Thursday, 26 Oct ,Order within 1 hr 22 mins";
+    p.style.color='green';
+    }
+    }
+
+
+
+//it's hard code 
+let obj = {
+catogery: "face",
+details: "Magicare All Day Foundation",
+id: 1,
+img: "https://www.hokmakeup.com/cdn/shop/files/1143325-Revolution-ConcealAndDefine-PowderFoundation-P0.2_2a.jpg?v=1696594794",
+img2: "https://c4.wallpaperflare.com/wallpaper/181/495/615/5bd03af005089-wallpaper-preview.jpg",
+name: "Example Product",
+price: 105,
+star_rating: 4.5,
+type: "Oil",
+usage: "For best results.",
+};
+localStorage.setItem("detail", JSON.stringify(obj));
+
+// u have to add these 2 thing when u are appending products into a product page
+// localStorage.setItem("detail",JSON.stringify(element));
+// window.location.assign('./productDetai.html');
+
+
+
+
+
+
+ let item= localStorage.getItem("detail");
+ item=JSON.parse(item);
+
+ let img=document.getElementById("dImg") ;
+ let name=document.getElementById("dName");
+ let price= document.getElementById("dPrice");
+ let dis=document.getElementById("dDiscription")
+ img.src=item.img;
+ name.textContent=item.details;
+ price.innerHTML= `<span> &#8377 <span> ${item.price}`;
+ dis.innerText=item.usage;
+ console.log(item);
+
+
+</script>

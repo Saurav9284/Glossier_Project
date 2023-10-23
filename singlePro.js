@@ -1,44 +1,72 @@
-import { footer } from "../Components/footer.js"
-
-document.querySelector("#footer").innerHTML = footer();
-
 var video = document.getElementById("myVideo");
-
 video.addEventListener("pause", function (e) {
   e.preventDefault();
   video.play();
 });
+
+
+// for adding data into cart 
 let cartButton = document.getElementById("cartButton")
-let alertContainer = document.getElementById("alert-container")
+let alertContainer = document.getElementById("alert-container");
+
 cartButton.addEventListener("click", () => {
-  let data = JSON.parse(localStorage.getItem("cart")) || [];
-  let element = {
-    Name: "Milkey Jelly Cleanser",
-    ProdImg: "../Images/Milkey-jelly-cleanser/glossier-mjc-futuredew-carousel-01.avif",
-    actor: "../Images/Milkey-jelly-cleanser/hover.avif",
-    content: "Universal Salve",
-    id: 3,
-    price: 14,
-    type: "Cleanser",
-  }
-  data.push(element);
+
+  let obj= localStorage.getItem("detail");
+  obj=JSON.parse(obj);
+  let data = JSON.parse(localStorage.getItem("ProductId")) || [];
+  data.push(obj);
+  localStorage.setItem("ProductId", JSON.stringify(data));
+  let msg = document.getElementById("alert-msg");
+  msg.textContent=`Product Added to Cart 🛍️`;
   alertContainer.style.display = "block";
   setTimeout(() => {
     alertContainer.style.display = "none";
   }, 800);
   localStorage.setItem("cart", JSON.stringify(data));
-}, { once: true });
+  cartButton.textContent="Product Added ✅"
+},
+{ once: true });
+
+
+
+// for adding product into wishlist
+
+let heart= document.querySelector(".fa-regular");
+heart.addEventListener("click", () => {
+  let msg = document.getElementById("alert-msg");
+  msg.textContent=`Item added into a WishList ❤️`;
+ alertContainer.style.display = "block";
+  setTimeout(() => {
+    alertContainer.style.display = "none";
+  }, 800);
+
+  heart.addEventListener("click",()=>{
+    window.location.replace('fav.html')
+  })
+  let obj= localStorage.getItem("detail");
+  obj=JSON.parse(obj);
+   let fav = JSON.parse(localStorage.getItem("ProductId")) || [];
+  fav.push(obj);
+  localStorage.setItem("fav",JSON.stringify(fav));
+  heart.style.color ="red ";
+  // heart.style.color="red";
+},
+{ once: true });
+
+
 
 let data = [
   {
-    id: 1,
-    Name: "Futuredew",
-    content: "Oil serum hybrid",
-    ProdImg:
-      "../Images/futureDue/glossier-futuredew-carousel-01.avif",
-    actor: "../Images/futureDue/futuredew-2.avif",
-    price: 26,
-    type: "treatment",
+catogery: "face",
+details: "Magicare All Day Foundation",
+id: 1,
+img: "https://www.hokmakeup.com/cdn/shop/files/1143325-Revolution-ConcealAndDefine-PowderFoundation-P0.2_2a.jpg?v=1696594794",
+img2: "https://c4.wallpaperflare.com/wallpaper/181/495/615/5bd03af005089-wallpaper-preview.jpg",
+name: "Example Product",
+price: 105,
+star_rating: 4.5,
+type: "Oil",
+usage: "For best results.",
   },
   {
     id: 2,
@@ -75,7 +103,6 @@ let data = [
 ];
 
 var container = document.querySelector("#container");
-
 function DisplyData(data) {
   data.forEach((element) => {
     //Card :-
@@ -89,13 +116,13 @@ function DisplyData(data) {
     //Image :-
     let img = document.createElement("img");
     img.classList.add("img-product-details");
-    img.src = element.ProdImg;
+    img.src = element.img;
     // Add event listener to change the image on hover
     img.addEventListener("mouseover", () => {
-      img.src = element.actor;
+      img.src = element.img2;
     });
     img.addEventListener("mouseleave", () => {
-      img.src = element.ProdImg;
+      img.src = element.img;
     });
 
     //info:-
@@ -106,15 +133,15 @@ function DisplyData(data) {
     name.classList.add("Name-Price-details");
     let pName = document.createElement("p");
     pName.classList.add("pName-details");
-    pName.innerText = element.Name;
+    pName.innerText = element.details;
     let pPrice = document.createElement("p");
     pPrice.classList.add("pPrice-details");
-    pPrice.innerText = `$${element.price}`;
+    pPrice.innerHTML = `<span>  &#8377; <span>${element.price}`;
 
     //Description:-
     let des = document.createElement("p");
     des.classList.add("description-details");
-    des.innerText = element.content;
+    des.innerText = element.usage;
 
     //Button :-
     let btn = document.createElement("button");
@@ -125,14 +152,13 @@ function DisplyData(data) {
 
 
     btn.addEventListener("click", () => {
-      let data = JSON.parse(localStorage.getItem("cart")) || [];
+      let data = JSON.parse(localStorage.getItem("ProductId")) || [];
       data.push(element);
       alertContainer.style.display = "block";
       setTimeout(() => {
         alertContainer.style.display = "none";
       }, 800);
-      localStorage.setItem("cart", JSON.stringify(data));
-      localStorage.setItem("cart", JSON.stringify(data));
+      localStorage.setItem("ProductId", JSON.stringify(data));
     });
 
     ImgCont.append(img);
