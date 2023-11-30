@@ -50,25 +50,28 @@ This is the homepage of our Project.
 ![Screenshot 2023-10-23 212023](https://github.com/Saurav9284/Unite-5-Project-Female-Beauty-Product-/assets/135011685/2f140bc8-c7d4-42ce-bfeb-b4d29e7633a9)
 
 **Product page.**
+
 ![Screenshot 2023-11-30 174700](https://github.com/Saurav9284/Unite-5-Project-Female-Beauty-Product-/assets/135011685/5cb97f99-1358-44b6-aa11-3b2ee0ca4300)
 
 **Product details page**
 
-
-**Wishlist page.**
-
+https://github.com/Saurav9284/Unite-5-Project-Female-Beauty-Product-/assets/135011685/f152f97c-60e8-485d-820a-8367ab436f9e
 
 **Checkout page**
 
+![Screenshot 2023-11-30 175243](https://github.com/Saurav9284/Unite-5-Project-Female-Beauty-Product-/assets/135011685/e191bc1e-09a4-4c16-a7da-e4dcbc3e025b)
 
 **Payment page.**
 
 This is our payment page after placing an order, the user will have some options for payment. e.g cash on delivery, debit/credit card, etc.
 
+![Screenshot 2023-11-30 175257](https://github.com/Saurav9284/Unite-5-Project-Female-Beauty-Product-/assets/135011685/33352672-4f5d-419b-a7f8-7171463e900d)
+
+![Screenshot 2023-11-30 175311](https://github.com/Saurav9284/Unite-5-Project-Female-Beauty-Product-/assets/135011685/ad18e494-ec85-4b85-be79-8711f5ad0e31)
 
 **Payment successful page**
 
-
+![Screenshot 2023-11-30 175329](https://github.com/Saurav9284/Unite-5-Project-Female-Beauty-Product-/assets/135011685/f056120e-5144-4558-8b3e-1e787f646116)
 
 **Collaboration tools.**
 
