@@ -1,2 +1,3 @@
-*.min.css linguist-vendored=false
-*.min.js linguist-vendored=false
+*.js linguist-detectable=true
+*.css linguist-detectable=true
+*.min.html linguist-vendored=true
